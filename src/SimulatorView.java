@@ -1,8 +1,11 @@
 import java.awt.*;
 import java.awt.event.*;
+
 import javax.swing.*;
+
 import java.util.LinkedHashMap;
 import java.util.Map;
+import net.miginfocom.swing.MigLayout;
 
 /**
  * A graphical view of the simulation grid.
@@ -25,6 +28,7 @@ public class SimulatorView extends JFrame
     private final String STEP_PREFIX = "Step: ";
     private final String POPULATION_PREFIX = "Population: ";
     private JLabel stepLabel, population;
+    private JButton oneStep, hundredStep;
     private FieldView fieldView;
     
     // A map for storing colors for participants in the simulation
@@ -45,15 +49,26 @@ public class SimulatorView extends JFrame
         setTitle("Fox and Rabbit Simulation");
         stepLabel = new JLabel(STEP_PREFIX, JLabel.CENTER);
         population = new JLabel(POPULATION_PREFIX, JLabel.CENTER);
-        
+        JPanel buttons = new JPanel();
+        JPanel sim = new JPanel();
+        oneStep = new JButton();
+        oneStep.setText("One Step");
+        hundredStep = new JButton();
+        hundredStep.setText("Hundred Steps");
         setLocation(100, 50);
         
         fieldView = new FieldView(height, width);
 
         Container contents = getContentPane();
-        contents.add(stepLabel, BorderLayout.NORTH);
-        contents.add(fieldView, BorderLayout.CENTER);
-        contents.add(population, BorderLayout.SOUTH);
+        contents.add(sim,BorderLayout.CENTER);
+        sim.setLayout(new BorderLayout(0, 0));
+        sim.add(stepLabel, BorderLayout.NORTH);
+        sim.add(fieldView, BorderLayout.CENTER);
+        sim.add(population, BorderLayout.SOUTH);
+        contents.add(buttons,BorderLayout.WEST);
+        buttons.setLayout(new MigLayout("", "[103px]", "[23px][23px]"));
+        buttons.add(oneStep, "cell 0 0,growx,aligny top");
+        buttons.add(hundredStep, "cell 0 1,alignx left,aligny top");
         pack();
         setVisible(true);
     }
