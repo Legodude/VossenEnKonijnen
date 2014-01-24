@@ -1,11 +1,9 @@
-
 import java.util.Random;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.awt.Color;
-
-import vk.view.SimulatorView;
+import java.awt.event.*;
 
 /**
  * A simple predator-prey simulator, based on a rectangular field
@@ -16,7 +14,7 @@ import vk.view.SimulatorView;
  */
 
 
-public class Simulator
+public class Simulator 
 {
     // Constants representing configuration information for the simulation.
     // The default width for the grid.
@@ -29,21 +27,18 @@ public class Simulator
     private static final double RABBIT_CREATION_PROBABILITY = 0.08;    
 
     // List of animals in the field.
-    private List<Animal> animals;
+    private static List<Animal> animals;
     // The current state of the field.
-    private Field field;
+    private static Field field;
     // The current step of the simulation.
-    private int step;
+    private static int step;
     // A graphical view of the simulation.
-    private SimulatorView view;
+    private static SimulatorView view;
     
     /**
      * Construct a simulation field with default size.
      */
-    public static void main(String[] args)
-	{
-		Simulator sim = new Simulator();
-	} 
+    
     
     public Simulator()
     {
@@ -76,6 +71,11 @@ public class Simulator
         reset();
     }
     
+    Simulator getSimulator()
+    {
+    	return this;
+    }
+    
     /**
      * Run the simulation from its current state for a reasonably long period,
      * e.g. 500 steps.
@@ -102,7 +102,7 @@ public class Simulator
      * Iterate over the whole field updating the state of each
      * fox and rabbit.
      */
-    public void simulateOneStep()
+    public static void simulateOneStep()
     {
         step++;
 
@@ -159,4 +159,6 @@ public class Simulator
             }
         }
     }
+    
+    
 }

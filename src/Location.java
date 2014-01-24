@@ -1,4 +1,3 @@
-
 /**
  * Represent a location in a rectangular grid.
  * 

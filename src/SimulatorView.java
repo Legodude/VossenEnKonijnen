@@ -1,12 +1,7 @@
-package vk.view;
-
 import java.awt.*;
 import java.awt.event.*;
 
 import javax.swing.*;
-
-import vk.Field;
-import vk.FieldStats;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -23,7 +18,7 @@ import net.miginfocom.swing.MigLayout;
  * @author David J. Barnes and Michael Kolling
  * @version 2008.03.30
  */
-public class SimulatorView extends JFrame
+public class SimulatorView extends JFrame implements ActionListener
 {
     // Colors used for empty locations.
     private static final Color EMPTY_COLOR = Color.white;
@@ -51,14 +46,20 @@ public class SimulatorView extends JFrame
     {
         stats = new FieldStats();
         colors = new LinkedHashMap<Class, Color>();
-
+        
         setTitle("Fox and Rabbit Simulation");
         stepLabel = new JLabel(STEP_PREFIX, JLabel.CENTER);
         population = new JLabel(POPULATION_PREFIX, JLabel.CENTER);
         JPanel buttons = new JPanel();
         JPanel sim = new JPanel();
-        oneStep = new JButton("One Step");
-        hundredStep = new JButton("Hundred Steps");
+        oneStep = new JButton();
+        oneStep.setText("One Step");
+        oneStep.setActionCommand("oneStep");
+        oneStep.addActionListener(this);
+        hundredStep = new JButton();
+        hundredStep.setText("Hundred Steps");
+        hundredStep.setActionCommand("hundredStep");
+        hundredStep.addActionListener(this);
         setLocation(100, 50);
         
         fieldView = new FieldView(height, width);
@@ -143,6 +144,14 @@ public class SimulatorView extends JFrame
     public boolean isViable(Field field)
     {
         return stats.isViable(field);
+    }
+    
+    public void actionPerformed(ActionEvent event)
+    {
+    	if(event.getActionCommand().equals("oneStep"))
+    	{
+    		Simulator.simulateOneStep();
+    	}
     }
     
     /**
@@ -230,7 +239,5 @@ public class SimulatorView extends JFrame
                 }
             }
         }
-        
-        
     }
 }
