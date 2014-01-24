@@ -149,7 +149,7 @@ public class Hunter extends Animal {
         int births = breed();
         for(int b = 0; b < births && free.size() > 0; b++) {
             Location loc = free.remove(0);
-            Fox young = new Fox(false, field, loc);
+            Hunter young = new Hunter(false, field, loc);
             newHunter.add(young);
         }
     }
