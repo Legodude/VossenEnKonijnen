@@ -31,7 +31,7 @@ public class Simulator
     // The probability that a rabbit will be created in any given grid position.
     private static final double RABBIT_CREATION_PROBABILITY = 0.07;    
     // The probability that a hunter will be created in any given grid position.
-    private static final double HUNTER_CREATION_PROBABILITY = 0.1;
+    private static final double HUNTER_CREATION_PROBABILITY = 0.01;
     // List of animals in the field.
     private static List<Animal> animals;
     // The current state of the field.

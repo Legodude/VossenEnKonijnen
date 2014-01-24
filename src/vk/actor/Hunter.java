@@ -16,7 +16,7 @@ public class Hunter extends Animal {
     // The age to which a fox can live.
     private static final int MAX_AGE = 150;
     // The likelihood of a fox breeding.
-    private static final double BREEDING_PROBABILITY = 0.35;
+    private static final double BREEDING_PROBABILITY = 0.1;
     // The maximum number of births.
     private static final int MAX_LITTER_SIZE = 5;
     // The food value of a single rabbit. In effect, this is the
@@ -24,6 +24,7 @@ public class Hunter extends Animal {
     private static final int RABBIT_FOOD_VALUE = 7;
     // A shared random number generator to control breeding.
     private static final Random rand = Randomizer.getRandom();
+	private static final int FOX_FOOD_VALUE = 5;
     
     // Individual characteristics (instance fields).
     // The fox's age.
@@ -127,6 +128,15 @@ public class Hunter extends Animal {
                 if(rabbit.isAlive()) { 
                     rabbit.setDead();
                     foodLevel = RABBIT_FOOD_VALUE;
+                    // Remove the dead rabbit from the field.
+                    return where;
+                }
+            }
+            if(animal instanceof Fox) {
+                Fox fox = (Fox) animal;
+                if(fox.isAlive()) { 
+                    fox.setDead();
+                    foodLevel = FOX_FOOD_VALUE;
                     // Remove the dead rabbit from the field.
                     return where;
                 }
