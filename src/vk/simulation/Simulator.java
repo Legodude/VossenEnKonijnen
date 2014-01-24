@@ -12,7 +12,7 @@ import vk.view.*;
 
 /**
  * A simple predator-prey simulator, based on a rectangular field
- * containing rabbits and foxes.
+ * containing rabbits, foxes and hunters.
  * 
  * @author David J. Barnes and Michael Kolling
  * @version 2008.03.30
@@ -29,8 +29,9 @@ public class Simulator
     // The probability that a fox will be created in any given grid position.
     private static final double FOX_CREATION_PROBABILITY = 0.02;
     // The probability that a rabbit will be created in any given grid position.
-    private static final double RABBIT_CREATION_PROBABILITY = 0.08;    
-
+    private static final double RABBIT_CREATION_PROBABILITY = 0.07;    
+    // The probability that a hunter will be created in any given grid position.
+    private static final double HUNTER_CREATION_PROBABILITY = 0.1;
     // List of animals in the field.
     private static List<Animal> animals;
     // The current state of the field.
@@ -71,7 +72,7 @@ public class Simulator
         view = new SimulatorView(depth, width);
         view.setColor(Rabbit.class, Color.orange);
         view.setColor(Fox.class, Color.blue);
-        
+        view.setColor(Hunter.class, Color.red);
         // Setup a valid starting point.
         reset();
     }
@@ -154,6 +155,12 @@ public class Simulator
                     Location location = new Location(row, col);
                     Fox fox = new Fox(true, field, location);
                     animals.add(fox);
+                }
+                else if(rand.nextDouble() <= HUNTER_CREATION_PROBABILITY)
+                {
+                	Location location = new Location (row, col);
+                	Hunter hunter = new Hunter(true, field, location);
+                	animals.add(hunter);
                 }
                 else if(rand.nextDouble() <= RABBIT_CREATION_PROBABILITY) {
                     Location location = new Location(row, col);
