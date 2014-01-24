@@ -1,10 +1,16 @@
+package vk.view;
+
 import java.awt.*;
 import java.awt.event.*;
 
 import javax.swing.*;
 
+import vk.Field;
+import vk.FieldStats;
+
 import java.util.LinkedHashMap;
 import java.util.Map;
+
 import net.miginfocom.swing.MigLayout;
 
 /**
@@ -51,10 +57,8 @@ public class SimulatorView extends JFrame
         population = new JLabel(POPULATION_PREFIX, JLabel.CENTER);
         JPanel buttons = new JPanel();
         JPanel sim = new JPanel();
-        oneStep = new JButton();
-        oneStep.setText("One Step");
-        hundredStep = new JButton();
-        hundredStep.setText("Hundred Steps");
+        oneStep = new JButton("One Step");
+        hundredStep = new JButton("Hundred Steps");
         setLocation(100, 50);
         
         fieldView = new FieldView(height, width);
@@ -226,5 +230,7 @@ public class SimulatorView extends JFrame
                 }
             }
         }
+        
+        
     }
 }

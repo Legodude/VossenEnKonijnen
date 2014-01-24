@@ -1,5 +1,7 @@
+package vk;
+
 import java.util.List;
-import java.util.Random;
+import java.uRandomizer;
 
 /**
  * A simple model of a rabbit.
