@@ -21,7 +21,7 @@ public class Hunter extends Animal {
     private static final int MAX_LITTER_SIZE = 5;
     // The food value of a single rabbit. In effect, this is the
     // number of steps a fox can go before it has to eat again.
-    private static final int RABBIT_FOOD_VALUE = 7;
+    private static final int HUNTER_FOOD_VALUE = 7;
     // A shared random number generator to control breeding.
     private static final Random rand = Randomizer.getRandom();
 	private static final int FOX_FOOD_VALUE = 5;
@@ -45,11 +45,11 @@ public class Hunter extends Animal {
         super(field, location);
         if(randomAge) {
             age = rand.nextInt(MAX_AGE);
-            foodLevel = rand.nextInt(RABBIT_FOOD_VALUE);
+            foodLevel = rand.nextInt(HUNTER_FOOD_VALUE);
         }
         else {
             age = 0;
-            foodLevel = RABBIT_FOOD_VALUE;
+            foodLevel = HUNTER_FOOD_VALUE;
         }
     }
     
