@@ -149,6 +149,14 @@ public class SimulatorView extends JFrame implements ActionListener
     	{
     		Simulator.simulateOneStep();
     	}
+    	if(event.getActionCommand().equals("hundredStep"))
+    	{
+    		for(int i=0;i<100;i++)
+    		{
+    			Simulator.simulateOneStep();
+    			
+    		}
+    	}
     }
     
     /**
