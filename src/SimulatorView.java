@@ -6,8 +6,6 @@ import javax.swing.*;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import net.miginfocom.swing.MigLayout;
-
 /**
  * A graphical view of the simulation grid.
  * The view displays a colored rectangle for each location 
@@ -71,7 +69,6 @@ public class SimulatorView extends JFrame implements ActionListener
         sim.add(fieldView, BorderLayout.CENTER);
         sim.add(population, BorderLayout.SOUTH);
         contents.add(buttons,BorderLayout.WEST);
-        buttons.setLayout(new MigLayout("", "[103px]", "[23px][23px]"));
         buttons.add(oneStep, "cell 0 0,growx,aligny top");
         buttons.add(hundredStep, "cell 0 1,alignx left,aligny top");
         pack();
