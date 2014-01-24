@@ -1,3 +1,4 @@
+package vk.model;
 /**
  * Represent a location in a rectangular grid.
  * 

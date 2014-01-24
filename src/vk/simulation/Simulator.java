@@ -1,9 +1,14 @@
+package vk.simulation;
+
 import java.util.Random;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.awt.Color;
-import java.awt.event.*;
+
+import vk.actor.*;
+import vk.model.*;
+import vk.view.*;
 
 /**
  * A simple predator-prey simulator, based on a rectangular field

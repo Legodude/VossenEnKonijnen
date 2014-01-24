@@ -1,7 +1,12 @@
+package vk.view;
 import java.awt.*;
 import java.awt.event.*;
 
 import javax.swing.*;
+
+import vk.model.Field;
+import vk.model.FieldStats;
+import vk.simulation.Simulator;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -18,7 +23,13 @@ import java.util.Map;
  */
 public class SimulatorView extends JFrame implements ActionListener
 {
-    // Colors used for empty locations.
+    /**
+	 * Randomly Generated serialVersionUID zodat eclipse stopt met janken
+	 * heeft wat van doen met compatibilty van instances
+	 */
+	private static final long serialVersionUID = 2113950054038469061L;
+
+	// Colors used for empty locations.
     private static final Color EMPTY_COLOR = Color.white;
 
     // Color used for objects that have no defined color.
@@ -31,7 +42,7 @@ public class SimulatorView extends JFrame implements ActionListener
     private FieldView fieldView;
     
     // A map for storing colors for participants in the simulation
-    private Map<Class, Color> colors;
+    private Map<Class<?>, Color> colors;
     // A statistics object computing and storing simulation information
     private FieldStats stats;
 
@@ -43,7 +54,7 @@ public class SimulatorView extends JFrame implements ActionListener
     public SimulatorView(int height, int width)
     {
         stats = new FieldStats();
-        colors = new LinkedHashMap<Class, Color>();
+        colors = new LinkedHashMap<Class<?>, Color>();
         
         setTitle("Fox and Rabbit Simulation");
         stepLabel = new JLabel(STEP_PREFIX, JLabel.CENTER);
@@ -81,7 +92,7 @@ public class SimulatorView extends JFrame implements ActionListener
      * @param animalClass The animal's Class object.
      * @param color The color to be used for the given class.
      */
-    public void setColor(Class animalClass, Color color)
+    public void setColor(Class<?> animalClass, Color color)
     {
         colors.put(animalClass, color);
     }
@@ -89,7 +100,7 @@ public class SimulatorView extends JFrame implements ActionListener
     /**
      * @return The color to be used for a given class of animal.
      */
-    private Color getColor(Class animalClass)
+    private Color getColor(Class<?> animalClass)
     {
         Color col = colors.get(animalClass);
         if(col == null) {
@@ -169,7 +180,12 @@ public class SimulatorView extends JFrame implements ActionListener
      */
     private class FieldView extends JPanel
     {
-        private final int GRID_VIEW_SCALING_FACTOR = 6;
+        /**
+		 * zelfde verhaal is de eerste serialVersionUID
+		 */
+		private static final long serialVersionUID = -5639320443455245917L;
+
+		private final int GRID_VIEW_SCALING_FACTOR = 6;
 
         private int gridWidth, gridHeight;
         private int xScale, yScale;

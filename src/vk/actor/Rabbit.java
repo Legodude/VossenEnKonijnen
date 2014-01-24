@@ -1,5 +1,10 @@
+package vk.actor;
 import java.util.List;
 import java.util.Random;
+
+import vk.model.Field;
+import vk.model.Location;
+import vk.simulation.Randomizer;
 
 /**
  * A simple model of a rabbit.
