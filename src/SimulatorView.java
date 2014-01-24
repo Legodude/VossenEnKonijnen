@@ -69,8 +69,9 @@ public class SimulatorView extends JFrame implements ActionListener
         sim.add(fieldView, BorderLayout.CENTER);
         sim.add(population, BorderLayout.SOUTH);
         contents.add(buttons,BorderLayout.WEST);
-        buttons.add(oneStep, "cell 0 0,growx,aligny top");
-        buttons.add(hundredStep, "cell 0 1,alignx left,aligny top");
+        buttons.setLayout(new BoxLayout(buttons, BoxLayout.PAGE_AXIS));
+        buttons.add(oneStep);
+        buttons.add(hundredStep);
         pack();
         setVisible(true);
     }
@@ -154,7 +155,6 @@ public class SimulatorView extends JFrame implements ActionListener
     		for(int i=0;i<100;i++)
     		{
     			Simulator.simulateOneStep();
-    			
     		}
     	}
     }
