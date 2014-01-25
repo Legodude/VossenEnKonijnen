@@ -185,4 +185,16 @@ public class Hunter extends Animal {
     {
         return age >= BREEDING_AGE;
     }
+
+	@Override
+	public boolean isAlive() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void setDead() {
+		// TODO Auto-generated method stub
+		
+	}
 }
