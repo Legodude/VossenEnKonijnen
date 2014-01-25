@@ -10,7 +10,7 @@ import vk.model.Location;
  * @author David J. Barnes and Michael Kolling
  * @version 2008.03.30
  */
-public abstract class Animal implements Actor
+public abstract class Animal
 {
     // Whether the animal is alive or not.
     private boolean alive;
@@ -37,7 +37,7 @@ public abstract class Animal implements Actor
      * whatever it wants/needs to do.
      * @param newAnimals A list to add newly born animals to.
      */
-    abstract public void act(List<Actor> newAnimals);
+    abstract public void act(List<Animal> newAnimals);
 
     /**
      * Check whether the animal is alive or not.

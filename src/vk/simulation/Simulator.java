@@ -33,7 +33,7 @@ public class Simulator
     // The probability that a hunter will be created in any given grid position.
     private static final double HUNTER_CREATION_PROBABILITY = 0.01;
     // List of animals in the field.
-    private static List<Actor> animals;
+    private static List<Animal> animals;
     // The current state of the field.
     private static Field field;
     // The current step of the simulation.
@@ -65,7 +65,7 @@ public class Simulator
             width = DEFAULT_WIDTH;
         }
         
-        animals = new ArrayList<Actor>();
+        animals = new ArrayList<Animal>();
         field = new Field(depth, width);
 
         // Create a view of the state of each location in the field.
@@ -113,10 +113,10 @@ public class Simulator
         step++;
 
         // Provide space for newborn animals.
-        List<Actor> newAnimals = new ArrayList<Actor>();        
+        List<Animal> newAnimals = new ArrayList<Animal>();        
         // Let all rabbits act.
-        for(Iterator<Actor> it = animals.iterator(); it.hasNext(); ) {
-            Actor animal = it.next();
+        for(Iterator<Animal> it = animals.iterator(); it.hasNext(); ) {
+            Animal animal = it.next();
             animal.act(newAnimals);
             if(! animal.isAlive()) {
                 it.remove();
