@@ -12,11 +12,11 @@ public class Hunter extends Animal {
     // Characteristics shared by all foxes (static fields).
     
     // The age at which a fox can start to breed.
-    private static final int BREEDING_AGE = 21;
+    private static final int BREEDING_AGE = 16;//16 and pregnant :D
     // The age to which a fox can live.
-    private static final int MAX_AGE = 150;
+    private static final int MAX_AGE = 100;
     // The likelihood of a fox breeding.
-    private static final double BREEDING_PROBABILITY = 0.1;
+    private static final double BREEDING_PROBABILITY = 0.35;
     // The maximum number of births.
     private static final int MAX_LITTER_SIZE = 5;
     // The food value of a single rabbit. In effect, this is the
