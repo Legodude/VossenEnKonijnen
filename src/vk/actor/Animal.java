@@ -1,8 +1,10 @@
 package vk.actor;
 import java.util.List;
+import java.util.Random;
 
 import vk.model.Field;
 import vk.model.Location;
+import vk.simulation.Randomizer;
 
 /**
  * A class representing shared characteristics of animals.
@@ -86,6 +88,22 @@ public abstract class Animal implements Actor
     public Field getField()
     {
         return field;
+    }
+    
+    /**
+     * Chooses a sex for the animal. Animals of the same sex should not reproduce.
+     * @return 'm' (male) or 'f' (female)
+     */
+    public char chooseSex()
+    {
+    	Random random = Randomizer.getRandom();
+    	int choice = random.nextInt(2);
+    	if(choice==0) {
+    		return 'm';
+    	}
+    	else {
+    		return 'f';
+    	}
     }
     
     /**

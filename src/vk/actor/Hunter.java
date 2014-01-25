@@ -16,7 +16,7 @@ public class Hunter extends Animal {
     // The age to which a fox can live.
     private static final int MAX_AGE = 100;
     // The likelihood of a fox breeding.
-    private static final double BREEDING_PROBABILITY = 0.35;
+    private static final double BREEDING_PROBABILITY = 0.90;
     // The maximum number of births.
     private static final int MAX_LITTER_SIZE = 5;
     // The food value of a single rabbit. In effect, this is the
@@ -25,8 +25,6 @@ public class Hunter extends Animal {
     // A shared random number generator to control breeding.
     private static final Random rand = Randomizer.getRandom();
 	private static final int FOX_FOOD_VALUE = 5;
-    
-	private static final String name = "Hunter";
 	
     // Individual characteristics (instance fields).
     // The fox's age.
@@ -47,6 +45,7 @@ public class Hunter extends Animal {
     public Hunter(boolean randomAge, Field field, Location location)
     {
         super(field, location);
+        sex = chooseSex();
         if(randomAge) {
             age = rand.nextInt(MAX_AGE);
             foodLevel = rand.nextInt(RABBIT_FOOD_VALUE);
@@ -169,12 +168,33 @@ public class Hunter extends Animal {
         Field field = getField();
         List<Location> free = field.getFreeAdjacentLocations(getLocation());
         int births = breed();
-        for(int b = 0; b < births && free.size() > 0; b++) {
-            Location loc = free.remove(0);
-            Hunter young = new Hunter(false, field, loc);
-            newHunter.add(young);
+        if(mate()==true) {
+	        for(int b = 0; b < births && free.size() > 0; b++) {
+	            Location loc = free.remove(0);
+	            Hunter young = new Hunter(false, field, loc);
+	            newHunter.add(young);
+	        }
         }
     }
+    
+    /**
+     * Check if the hunter is standing next to a member of the opposite sex
+     * @return true/false
+     */
+    private boolean mate()
+    {
+    	Field field = getField();
+    	List<Actor> animals = field.getAnimalsAdjacentLocations(getLocation());
+    	for(int a = 0; a < animals.size(); a++ ) {
+    		if(this.getClass().equals(animals.get(a).getClass())) {
+    			if(this.getSex()!=animals.get(a).getSex()) {
+    				return true;
+    			}
+    		}
+    	}
+    	return false;
+    }
+    
         
     /**
      * Generate a number representing the number of births,

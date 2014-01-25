@@ -27,9 +27,7 @@ public class Rabbit extends Animal
     private static final int MAX_LITTER_SIZE = 4;
     // A shared random number generator to control breeding.
     private static final Random rand = Randomizer.getRandom();
-    
-    private static final String name = "Rabbit";
-    
+
     // Individual characteristics (instance fields).
     // The rabbit's age.
     private int age;
@@ -77,21 +75,6 @@ public class Rabbit extends Animal
     }
     
     /**
-     * Chooses a sex for the rabbit. Rabbits of the same sex cannot reproduce.
-     * @return 'm' (male) or 'f' (female)
-     */
-    private char chooseSex()
-    {
-    	Random random = Randomizer.getRandom();
-    	int choice = random.nextInt(2);
-    	if(choice==0) {
-    		return 'm';
-    	}
-    	else {
-    		return 'f';
-    	}
-    }
-    /**
      * The getter for the sex of the rabbit.
      * @return a 'm' or 'f'
      */
@@ -132,6 +115,10 @@ public class Rabbit extends Animal
         }
     }
     
+    /**
+     * Check if the rabbit is standing next to a member of the opposite sex
+     * @return true/false
+     */
     private boolean mate()
     {
     	Field field = getField();
