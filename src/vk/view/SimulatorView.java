@@ -181,7 +181,7 @@ public class SimulatorView extends JFrame implements ActionListener
     private class FieldView extends JPanel
     {
         /**
-		 * zelfde verhaal is de eerste serialVersionUID
+		 * zelfde verhaal als de eerste serialVersionUID
 		 */
 		private static final long serialVersionUID = -5639320443455245917L;
 

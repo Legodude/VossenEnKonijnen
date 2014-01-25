@@ -12,7 +12,7 @@ public class Hunter extends Animal {
     // Characteristics shared by all foxes (static fields).
     
     // The age at which a fox can start to breed.
-    private static final int BREEDING_AGE = 10;
+    private static final int BREEDING_AGE = 21;
     // The age to which a fox can live.
     private static final int MAX_AGE = 150;
     // The likelihood of a fox breeding.
@@ -60,7 +60,7 @@ public class Hunter extends Animal {
      * @param field The field currently occupied.
      * @param newHunter A list to add newly born hunters to.
      */
-    public void act(List<Animal> newHunter)
+    public void act(List<Actor> newHunter)
     {
         incrementAge();
         incrementHunger();
@@ -150,7 +150,7 @@ public class Hunter extends Animal {
      * New births will be made into free adjacent locations.
      * @param newFoxes A list to add newly born foxes to.
      */
-    private void giveBirth(List<Animal> newHunter)
+    private void giveBirth(List<Actor> newHunter)
     {
         // New foxes are born into adjacent locations.
         // Get a list of adjacent free locations.
