@@ -12,9 +12,21 @@ public interface Actor {
 	
 	public boolean alive=true;
 	
+	/**
+	 * Function to check if Actor is Alive
+	 * @return boolean alive
+	 */
 	public abstract boolean isAlive();
 	
+	/**
+	 * kill the Actor
+	*/
 	public abstract void setDead();
+	
+	/**
+	 * perform the operations on the grid
+	 * @param newactors
+	 */
 	
 	public abstract void act(List<Actor> newactors);
 }

@@ -77,11 +77,6 @@ public class Simulator
         reset();
     }
     
-    Simulator getSimulator()
-    {
-    	return this;
-    }
-    
     /**
      * Run the simulation from its current state for a reasonably long period,
      * e.g. 500 steps.
@@ -96,7 +91,7 @@ public class Simulator
      * Stop before the given number of steps if it ceases to be viable.
      * @param numSteps The number of steps to run for.
      */
-    public void simulate(int numSteps)
+    public static void simulate(int numSteps)
     {
         for(int step = 1; step <= numSteps && view.isViable(field); step++) {
             simulateOneStep();

@@ -114,7 +114,6 @@ public class Hunter extends Animal {
      */
     
     
-    //Vos moet er nog bij komen die wordt "opgegeten door de jager(hunter)"
     private Location findFood(Location location)
     {
         Field field = getField();
