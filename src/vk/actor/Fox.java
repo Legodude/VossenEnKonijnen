@@ -35,6 +35,8 @@ public class Fox extends Animal
     // Individual characteristics (instance fields).
     // The fox's age.
     private int age;
+    // The fox's sex.
+    public char sex;
     // The fox's food level, which is increased by eating rabbits.
     private int foodLevel;
 
@@ -90,6 +92,14 @@ public class Fox extends Animal
                 setDead();
             }
         }
+    }
+    /**
+     * The getter for the sex of the fox.
+     * @return a 'm' or 'f'
+     */
+    public char getSex()
+    {
+    	return sex;
     }
 
     /**

@@ -31,9 +31,10 @@ public class Rabbit extends Animal
     private static final String name = "Rabbit";
     
     // Individual characteristics (instance fields).
-    
     // The rabbit's age.
     private int age;
+    // The rabbit's sex.
+    public char sex;
 
     /**
      * Create a new rabbit. A rabbit may be created with age
@@ -47,6 +48,7 @@ public class Rabbit extends Animal
     {
         super(field, location);
         age = 0;
+        sex = chooseSex();
         if(randomAge) {
             age = rand.nextInt(MAX_AGE);
         }
@@ -73,7 +75,30 @@ public class Rabbit extends Animal
             }
         }
     }
-
+    
+    /**
+     * Chooses a sex for the rabbit. Rabbits of the same sex cannot reproduce.
+     * @return 'm' (male) or 'f' (female)
+     */
+    private char chooseSex()
+    {
+    	Random random = Randomizer.getRandom();
+    	int choice = random.nextInt(2);
+    	if(choice==0) {
+    		return 'm';
+    	}
+    	else {
+    		return 'f';
+    	}
+    }
+    /**
+     * The getter for the sex of the rabbit.
+     * @return a 'm' or 'f'
+     */
+    public char getSex()
+    {
+    	return sex;
+    }
     /**
      * Increase the age.
      * This could result in the rabbit's death.
@@ -113,7 +138,9 @@ public class Rabbit extends Animal
     	List<Actor> animals = field.getAnimalsAdjacentLocations(getLocation());
     	for(int a = 0; a < animals.size(); a++ ) {
     		if(this.getClass().equals(animals.get(a).getClass())) {
-    			return true;
+    			if(this.getSex()!=animals.get(a).getSex()) {
+    				return true;
+    			}
     		}
     	}
     	return false;

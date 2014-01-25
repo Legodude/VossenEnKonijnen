@@ -100,5 +100,4 @@ public abstract class Animal implements Actor
         location = newLocation;
         field.place(this, newLocation);
     }
-    
 }

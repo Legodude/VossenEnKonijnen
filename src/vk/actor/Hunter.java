@@ -31,6 +31,8 @@ public class Hunter extends Animal {
     // Individual characteristics (instance fields).
     // The fox's age.
     private int age;
+    // The hunter's sex.
+    public char sex;
     // The fox's food level, which is increased by eating rabbits.
     private int foodLevel;
 
@@ -84,6 +86,15 @@ public class Hunter extends Animal {
                 setDead();
             }
         }
+    }
+    
+    /**
+     * The getter for the sex of the hunter.
+     * @return a 'm' or 'f'
+     */
+    public char getSex()
+    {
+    	return sex;
     }
 
     /**
