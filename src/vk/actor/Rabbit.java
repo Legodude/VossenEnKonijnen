@@ -97,15 +97,26 @@ public class Rabbit extends Animal
         // Get a list of adjacent free locations.
         Field field = getField();
         List<Location> free = field.getFreeAdjacentLocations(getLocation());
-        List<Location> animals = field.getAnimalsAdjacentLocations(getLocation());
         int births = breed();
-        if(!animals.contains(this)) {
+        if(mate()==true) {
 	        for(int b = 0; b < births && free.size() > 0; b++) {
 	            Location loc = free.remove(0);
 	            Rabbit young = new Rabbit(false, field, loc);
 	            newRabbits.add(young);
 	        }
         }
+    }
+    
+    private boolean mate()
+    {
+    	Field field = getField();
+    	List<Actor> animals = field.getAnimalsAdjacentLocations(getLocation());
+    	for(int a = 0; a < animals.size(); a++ ) {
+    		if(this.getClass().equals(animals.get(a).getClass())) {
+    			return true;
+    		}
+    	}
+    	return false;
     }
         
     /**

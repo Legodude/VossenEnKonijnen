@@ -138,13 +138,13 @@ public class Field
      * @param location
      * @return A list of the owners of taken locations
      */
-    public List<Location> getAnimalsAdjacentLocations(Location location)
+    public List<Actor> getAnimalsAdjacentLocations(Location location)
     {
-    	List<Location> animals = new LinkedList<Location>();
+    	List<Actor> animals = new LinkedList<Actor>();
     	List<Location> adjacent = adjacentLocations(location);
     	for(Location next : adjacent) {
     		if(getObjectAt(next) != null) {
-    			animals.add(next);
+    			animals.add(getObjectAt(next));
     		}
     	}
     	return animals;

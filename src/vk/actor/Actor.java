@@ -7,6 +7,7 @@ import vk.model.Location;
 
 public interface Actor {
 	public Field field = null;
+	public String sex = null;
 	
 	public Location location = null;
 	
@@ -32,6 +33,11 @@ public interface Actor {
 	 * perform the operations on the grid
 	 * @param newactors
 	 */
-	
 	public abstract void act(List<Actor> newactors);
+	
+	/**
+	 * Return the sex of the Actor
+	 */
+	public abstract String getActorSex();
+	
 }
