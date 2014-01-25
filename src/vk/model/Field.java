@@ -134,6 +134,23 @@ public class Field
     }
     
     /**
+     * Get a shuffled list of the taken adjacent locations and their occupants.
+     * @param location
+     * @return A list of the owners of taken locations
+     */
+    public List<Location> getAnimalsAdjacentLocations(Location location)
+    {
+    	List<Location> animals = new LinkedList<Location>();
+    	List<Location> adjacent = adjacentLocations(location);
+    	for(Location next : adjacent) {
+    		if(getObjectAt(next) != null) {
+    			animals.add(next);
+    		}
+    	}
+    	return animals;
+    }
+    
+    /**
      * Try to find a free location that is adjacent to the
      * given location. If there is none, return null.
      * The returned location will be within the valid bounds
