@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Random;
 
 import vk.simulation.Randomizer;
-
+import vk.actor.*;
 /**
  * Represent a rectangular grid of field positions.
  * Each position is able to store a single animal.
@@ -86,7 +86,7 @@ public class Field
      * @param location Where in the field.
      * @return The animal at the given location, or null if there is none.
      */
-    public Object getObjectAt(Location location)
+    public Actor getObjectAt(Location location)
     {
         return getObjectAt(location.getRow(), location.getCol());
     }
@@ -97,9 +97,9 @@ public class Field
      * @param col The desired column.
      * @return The animal at the given location, or null if there is none.
      */
-    public Object getObjectAt(int row, int col)
+    public Actor getObjectAt(int row, int col)
     {
-        return field[row][col];
+        return (Actor) field[row][col];
     }
     
     /**

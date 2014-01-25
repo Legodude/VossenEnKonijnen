@@ -26,6 +26,8 @@ public class Hunter extends Animal {
     private static final Random rand = Randomizer.getRandom();
 	private static final int FOX_FOOD_VALUE = 5;
     
+	private static final String name = "Hunter";
+	
     // Individual characteristics (instance fields).
     // The fox's age.
     private int age;

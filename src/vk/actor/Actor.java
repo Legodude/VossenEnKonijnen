@@ -11,7 +11,7 @@ public interface Actor {
 	public Location location = null;
 	
 	public boolean alive=true;
-	
+	public String name = null;
 	/**
 	 * Function to check if Actor is Alive
 	 * @return boolean alive
@@ -22,6 +22,11 @@ public interface Actor {
 	 * kill the Actor
 	*/
 	public abstract void setDead();
+	/**
+	 * function to give the name of the Actor (e.g Chuck Norris)
+	 * @return actorname
+	 */
+	public abstract String getActorName();
 	
 	/**
 	 * perform the operations on the grid

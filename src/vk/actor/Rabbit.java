@@ -28,6 +28,8 @@ public class Rabbit extends Animal
     // A shared random number generator to control breeding.
     private static final Random rand = Randomizer.getRandom();
     
+    private static final String name = "Rabbit";
+    
     // Individual characteristics (instance fields).
     
     // The rabbit's age.

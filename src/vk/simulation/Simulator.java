@@ -70,9 +70,9 @@ public class Simulator
 
         // Create a view of the state of each location in the field.
         view = new SimulatorView(depth, width);
-        view.setColor(Rabbit.class, Color.orange);
-        view.setColor(Fox.class, Color.blue);
-        view.setColor(Hunter.class, Color.red);
+        view.getSim().setColor(Rabbit.class, Color.orange);
+        view.getSim().setColor(Fox.class, Color.blue);
+        view.getSim().setColor(Hunter.class, Color.red);
         // Setup a valid starting point.
         reset();
     }
@@ -93,7 +93,7 @@ public class Simulator
      */
     public static void simulate(int numSteps)
     {
-        for(int step = 1; step <= numSteps && view.isViable(field); step++) {
+        for(int step = 1; step <= numSteps && view.getSim().isViable(field); step++) {
             simulateOneStep();
         }
     }
@@ -119,7 +119,7 @@ public class Simulator
                
         actors.addAll(newActors);
 
-        view.showStatus(step, field);
+        view.getSim().showStatus(step, field);
     }
         
     /**
@@ -132,7 +132,7 @@ public class Simulator
         populate();
         
         // Show the starting state in the view.
-        view.showStatus(step, field);
+        view.getSim().showStatus(step, field);
     }
     
     /**

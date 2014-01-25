@@ -19,6 +19,8 @@ public abstract class Animal implements Actor
     // The animal's position in the field.
     private Location location;
     
+    private String name;
+    
     /**
      * Create a new animal at location in field.
      * 
@@ -30,6 +32,7 @@ public abstract class Animal implements Actor
         alive = true;
         this.field = field;
         setLocation(location);
+        name = null;
     }
     
     /**
@@ -48,6 +51,11 @@ public abstract class Animal implements Actor
         return alive;
     }
 
+    public String getActorName()
+    {
+    	return name;
+    }
+    
     /**
      * Indicate that the animal is no longer alive.
      * It is removed from the field.
