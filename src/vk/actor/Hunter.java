@@ -7,31 +7,19 @@ import vk.model.Field;
 import vk.model.Location;
 import vk.simulation.Randomizer;
 
-public class Hunter extends Animal {
-
-    // Characteristics shared by all foxes (static fields).
+public class Hunter implements Actor {
     
-    // The age at which a fox can start to breed.
-    private static final int BREEDING_AGE = 10;
-    // The age to which a fox can live.
-    private static final int MAX_AGE = 150;
-    // The likelihood of a fox breeding.
-    private static final double BREEDING_PROBABILITY = 0.1;
-    // The maximum number of births.
-    private static final int MAX_LITTER_SIZE = 5;
-    // The food value of a single rabbit. In effect, this is the
-    // number of steps a fox can go before it has to eat again.
-    private static final int RABBIT_FOOD_VALUE = 7;
-    // A shared random number generator to control breeding.
-    private static final Random rand = Randomizer.getRandom();
-	private static final int FOX_FOOD_VALUE = 5;
-    
-    // Individual characteristics (instance fields).
-    // The fox's age.
     private int age;
-    // The fox's food level, which is increased by eating rabbits.
+    
     private int foodLevel;
-
+    
+    private boolean alive;
+    
+    private Field field;
+    
+    private static final Random rand = Randomizer.getRandom();
+    
+    private final int MAX_AGE = 100;
     /**
      * Create a hunter can be created as a new born (age zero
      * and not hungry) or with a random age and food level.
@@ -42,14 +30,16 @@ public class Hunter extends Animal {
      */
     public Hunter(boolean randomAge, Field field, Location location)
     {
-        super(field, location);
-        if(randomAge) {
-            age = rand.nextInt(MAX_AGE);
-            foodLevel = rand.nextInt(RABBIT_FOOD_VALUE);
+        this.alive=true;
+        this.field=field;
+        setLocation(location);
+        if(randomAge==true)
+        {
+        	this.age=rand.nextInt(MAX_AGE);
         }
-        else {
-            age = 0;
-            foodLevel = RABBIT_FOOD_VALUE;
+        else
+        {
+        	this.age=0;
         }
     }
     
@@ -60,12 +50,10 @@ public class Hunter extends Animal {
      * @param field The field currently occupied.
      * @param newHunter A list to add newly born hunters to.
      */
-    public void act(List<Animal> newHunter)
+    public void act(List<Actor> newHunter)
     {
         incrementAge();
-        incrementHunger();
-        if(isAlive()) {
-            giveBirth(newHunter);            
+        if(isAlive()) {        
             // Move towards a source of food if found.
             Location location = getLocation();
             Location newLocation = findFood(location);
@@ -81,28 +69,6 @@ public class Hunter extends Animal {
                 // Overcrowding.
                 setDead();
             }
-        }
-    }
-
-    /**
-     * Increase the age. This could result in the hunters death.
-     */
-    private void incrementAge()
-    {
-        age++;
-        if(age > MAX_AGE) {
-            setDead();
-        }
-    }
-    
-    /**
-     * Make this hunter more hungry. This could result in the fox's death.
-     */
-    private void incrementHunger()
-    {
-        foodLevel--;
-        if(foodLevel <= 0) {
-            setDead();
         }
     }
     
@@ -127,7 +93,6 @@ public class Hunter extends Animal {
                 Rabbit rabbit = (Rabbit) animal;
                 if(rabbit.isAlive()) { 
                     rabbit.setDead();
-                    foodLevel = RABBIT_FOOD_VALUE;
                     // Remove the dead rabbit from the field.
                     return where;
                 }
@@ -136,7 +101,6 @@ public class Hunter extends Animal {
                 Fox fox = (Fox) animal;
                 if(fox.isAlive()) { 
                     fox.setDead();
-                    foodLevel = FOX_FOOD_VALUE;
                     // Remove the dead rabbit from the field.
                     return where;
                 }
@@ -145,44 +109,40 @@ public class Hunter extends Animal {
         return null;
     }
     
-    /**
-     * Check whether or not this fox is to give birth at this step.
-     * New births will be made into free adjacent locations.
-     * @param newFoxes A list to add newly born foxes to.
-     */
-    private void giveBirth(List<Animal> newHunter)
+    public void incrementAge()
     {
-        // New foxes are born into adjacent locations.
-        // Get a list of adjacent free locations.
-        Field field = getField();
-        List<Location> free = field.getFreeAdjacentLocations(getLocation());
-        int births = breed();
-        for(int b = 0; b < births && free.size() > 0; b++) {
-            Location loc = free.remove(0);
-            Hunter young = new Hunter(false, field, loc);
-            newHunter.add(young);
-        }
-    }
-        
-    /**
-     * Generate a number representing the number of births,
-     * if it can breed.
-     * @return The number of births (may be zero).
-     */
-    private int breed()
-    {
-        int births = 0;
-        if(canBreed() && rand.nextDouble() <= BREEDING_PROBABILITY) {
-            births = rand.nextInt(MAX_LITTER_SIZE) + 1;
-        }
-        return births;
+    	if(age<MAX_AGE)
+		{
+    		age++;
+		}
+    	else
+    	{
+    		setDead();
+    	}
     }
 
-    /**
-     * A hunter can breed if it has reached the breeding age.
-     */
-    private boolean canBreed()
-    {
-        return age >= BREEDING_AGE;
-    }
+	public boolean isAlive() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void setDead() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public Location getLocation() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Field getField() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void setLocation(Location location) {
+		// TODO Auto-generated method stub
+		
+	}
 }
