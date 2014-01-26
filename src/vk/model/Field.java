@@ -106,20 +106,27 @@ public class Field
      * Return a list of all compatible actors
      * @return all compatible actors
      */
-    public List<Location> getAllCompatibleActors(Actor actor)
+    public List<Location> getAllCompatibleActors(Animal actor)
     {
     	List<Location> allactors = new LinkedList<Location>();
     	for(int a = 0; a < field.length; a++) {
 	    	for(int row = 0; row < depth; row++) {
 	            for(int col = 0; col < width; col++) {
-	                if(actor.getClass().equals(getObjectAt(row, col).getClass())
-	                && actor.getSex()!=getObjectAt(row, col).getSex()) {
-	                	allactors.add(new Location(row, col));
-	                }
+	            	if(getObjectAt(row, col)!=null) {
+		                if(actor.getClass().equals(getObjectAt(row, col).getClass())
+		                && actor.getSex()!=getObjectAt(row, col).getSex()) {
+		                	allactors.add(new Location(row, col));
+		                }
+	            	}
 	            }
 	    	}
     	}
-    	return allactors;
+    	if(!allactors.isEmpty()) {
+    		return allactors;
+    	}
+    	else {
+    		return null;
+    	}
     }
     
     /**

@@ -73,8 +73,8 @@ public class Hunter extends Animal {
             Location location = getLocation();
             Location newLocation = findFood(location);
             if(newLocation == null) { 
-                // No food found - try to move to a free location.
-                newLocation = getField().freeAdjacentLocation(location);
+                // No food found - try to move to a partner.
+                newLocation = closestMate();
             }
             // See if it was possible to move.
             if(newLocation != null) {
@@ -157,24 +157,53 @@ public class Hunter extends Animal {
     }
     
     /**
-     * Returns the closest compatible mate for the Hunter
-     * @return Location (closest mate)
+     * Returns the best spot to go to to get to a mate
+     * @return Location (towards mate)
      */
     private Location closestMate()
-    {
+    {	
+    	Location route;
+    	int movementcol;
+    	int movementrow;
     	int closest = 999999;
     	int current = this.getLocation().getCol() + this.getLocation().getRow();
     	Location mate = null;
     	Field field = getField();
-    	List<Location> all = field.getAllCompatibleActors(this);
-    	for(int a = 0; a < all.size(); a++) {
-    		int comparable = all.get(a).getRow() + all.get(a).getCol();
-    		if(current-comparable<closest) {
-    			closest = comparable;
-    			mate = all.get(a);
-    		}
+    	if(field.getAllCompatibleActors(this)!=null) {
+    		List<Location> all = field.getAllCompatibleActors(this);
+	    	for(int a = 0; a < all.size(); a++) {
+	    		int comparable = all.get(a).getRow() + all.get(a).getCol();
+	    		if(current-comparable<closest) {
+	    			closest = comparable;
+	    			mate = all.get(a);
+	    		}
+	    	}
+	    	if(mate.getCol()>this.getLocation().getCol()) {
+	    		movementcol = this.getLocation().getCol()+1;
+	    	}
+	    	else {
+	    		movementcol = mate.getCol()+1;
+	    	}
+	    	if(mate.getRow()>this.getLocation().getRow()) {
+	    		movementrow = this.getLocation().getRow()+1;
+	    	}
+	    	else {
+	    		movementrow = mate.getRow()+1;
+	    	}
+	    	if(mate.getCol()==this.getLocation().getCol()) {
+	    		route = new Location(movementrow,mate.getCol());
+	    	}
+	    	else if(mate.getRow()==this.getLocation().getRow()) {
+	    		route = new Location(mate.getRow(), movementcol);
+	    	}
+	    	else {
+	    		route = new Location(movementrow, movementcol);
+	    	}
     	}
-    	return mate;
+    	else {
+    		return field.freeAdjacentLocation(this.getLocation());
+    	}
+    	return route;
     }
     
     
