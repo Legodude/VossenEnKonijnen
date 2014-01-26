@@ -106,7 +106,7 @@ public class Field
      * Return a list of all compatible actors
      * @return all compatible actors
      */
-    public List<Location> getAllCompatibleActors(char sex, Actor actor)
+    public List<Location> getAllCompatibleActors(Actor actor)
     {
     	List<Location> allactors = new LinkedList<Location>();
     	for(int a = 0; a < field.length; a++) {

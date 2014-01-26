@@ -158,14 +158,22 @@ public class Hunter extends Animal {
     
     /**
      * Returns the closest compatible mate for the Hunter
-     * @return Actor (closest mate)
+     * @return Location (closest mate)
      */
-    private Actor closestMate()
+    private Location closestMate()
     {
-    	Actor mate = null;
-    	List<Location> all = getAllCompatibleActors(sex, this);
-    	
-    	
+    	int closest = 999999;
+    	int current = this.getLocation().getCol() + this.getLocation().getRow();
+    	Location mate = null;
+    	Field field = getField();
+    	List<Location> all = field.getAllCompatibleActors(this);
+    	for(int a = 0; a < all.size(); a++) {
+    		int comparable = all.get(a).getRow() + all.get(a).getCol();
+    		if(current-comparable<closest) {
+    			closest = comparable;
+    			mate = all.get(a);
+    		}
+    	}
     	return mate;
     }
     
