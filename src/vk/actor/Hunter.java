@@ -157,6 +157,20 @@ public class Hunter extends Animal {
     }
     
     /**
+     * Returns the closest compatible mate for the Hunter
+     * @return Actor (closest mate)
+     */
+    private Actor closestMate()
+    {
+    	Actor mate = null;
+    	List<Location> all = getAllCompatibleActors(sex, this);
+    	
+    	
+    	return mate;
+    }
+    
+    
+    /**
      * Check whether or not this fox is to give birth at this step.
      * New births will be made into free adjacent locations.
      * @param newFoxes A list to add newly born foxes to.

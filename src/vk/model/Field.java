@@ -103,6 +103,26 @@ public class Field
     }
     
     /**
+     * Return a list of all actors
+     * @return all actors
+     */
+    public List<Location> getAllCompatibleActors(char sex, Actor actor)
+    {
+    	List<Location> allactors = new LinkedList<Location>();
+    	for(int a = 0; a < field.length; a++) {
+	    	for(int row = 0; row < depth; row++) {
+	            for(int col = 0; col < width; col++) {
+	                if(actor.getClass().equals(getObjectAt(row, col).getClass())
+	                && actor.getSex()!=getObjectAt(row, col).getSex()) {
+	                	allactors.add(new Location(row, col));
+	                }
+	            }
+	    	}
+    	}
+    	return allactors;
+    }
+    
+    /**
      * Generate a random location that is adjacent to the
      * given location, or is the same location.
      * The returned location will be within the valid bounds
