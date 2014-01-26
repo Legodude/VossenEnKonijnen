@@ -114,7 +114,7 @@ public class Alligator extends Animal
         if(mate()==true) {
 	        for(int b = 0; b < births && free.size() > 0; b++) {
 	            Location loc = free.remove(0);
-	            Alligator young = new alligator(false, field, loc);
+	            Alligator young = new Alligator(false, field, loc);
 	            newAlligators.add(young);
 	        }
         }

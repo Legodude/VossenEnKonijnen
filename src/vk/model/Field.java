@@ -103,8 +103,8 @@ public class Field
     }
     
     /**
-     * Return a list of all actors
-     * @return all actors
+     * Return a list of all compatible actors
+     * @return all compatible actors
      */
     public List<Location> getAllCompatibleActors(char sex, Actor actor)
     {
