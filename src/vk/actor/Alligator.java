@@ -1,4 +1,5 @@
 package vk.actor;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
@@ -22,7 +23,7 @@ public class Alligator extends Animal
     // The age to which an alligator can live.
     private static final int MAX_AGE = 200;
     // The likelihood of an alligator breeding.
-    private static final double BREEDING_PROBABILITY = 0.04;
+    private static final double BREEDING_PROBABILITY = 0.50;
     // The food value of a single rabbit, fox and hunter. In effect, this is the
     // number of steps an alligator can go before it has to eat again.
     private static final int RABBIT_FOOD_VALUE = 7;
@@ -38,6 +39,8 @@ public class Alligator extends Animal
     private int age;
     // The alligator's sex.
     public char sex;
+    // The alligator's food level, which is increased by eating rabbits, foxes and hunters.
+    public int foodLevel;
 
     /**
      * Create a new alligator. An alligator may be created with age
@@ -50,10 +53,14 @@ public class Alligator extends Animal
     public Alligator(boolean randomAge, Field field, Location location)
     {
         super(field, location);
-        age = 0;
         sex = chooseSex();
         if(randomAge) {
             age = rand.nextInt(MAX_AGE);
+            foodLevel = rand.nextInt(HUNTER_FOOD_VALUE);
+        }
+        else {
+            age = 0;
+            foodLevel = HUNTER_FOOD_VALUE;
         }
     }
     
@@ -65,10 +72,17 @@ public class Alligator extends Animal
     public void act(List<Actor> newAlligators)
     {
         incrementAge();
+        incrementHunger();
         if(isAlive()) {
             giveBirth(newAlligators);            
-            // Try to move into a free location.
-            Location newLocation = getField().freeAdjacentLocation(getLocation());
+            // Move towards a source of food if found.
+            Location location = getLocation();
+            Location newLocation = findFood(location);
+            if(newLocation == null) { 
+                // No food found - try to move to a free location.
+                newLocation = getField().freeAdjacentLocation(location);
+            }
+            // See if it was possible to move.
             if(newLocation != null) {
                 setLocation(newLocation);
             }
@@ -76,6 +90,55 @@ public class Alligator extends Animal
                 // Overcrowding.
                 setDead();
             }
+        }
+    }
+    
+    private Location findFood(Location location)
+    {
+        Field field = getField();
+        List<Location> adjacent = field.adjacentLocations(getLocation());
+        Iterator<Location> it = adjacent.iterator();
+        while(it.hasNext()) {
+            Location where = it.next();
+            Object animal = field.getObjectAt(where);
+            if(animal instanceof Rabbit) {
+                Rabbit rabbit = (Rabbit) animal;
+                if(rabbit.isAlive()) { 
+                    rabbit.setDead();
+                    foodLevel = RABBIT_FOOD_VALUE;
+                    // Remove the dead rabbit from the field.
+                    return where;
+                }
+            }
+            if(animal instanceof Fox) {
+                Fox fox = (Fox) animal;
+                if(fox.isAlive()) { 
+                    fox.setDead();
+                    foodLevel = FOX_FOOD_VALUE;
+                    // Remove the dead rabbit from the field.
+                    return where;
+                }
+            }
+            if(animal instanceof Hunter){
+            	Hunter hunter = (Hunter) animal;
+            	if(hunter.isAlive()){
+            		hunter.setDead();
+            		foodLevel = HUNTER_FOOD_VALUE;
+            		return where;
+            	}
+            }
+        }
+        return null;
+    }
+    
+    /**
+     * Make this alligator more hungry. This could result in the alligator's death.
+     */
+    private void incrementHunger()
+    {
+        foodLevel--;
+        if(foodLevel <= 0) {
+            setDead();
         }
     }
     
