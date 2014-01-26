@@ -109,18 +109,16 @@ public class Field
     public List<Location> getAllCompatibleActors(Animal actor)
     {
     	List<Location> allactors = new LinkedList<Location>();
-    	for(int a = 0; a < field.length; a++) {
-	    	for(int row = 0; row < depth; row++) {
-	            for(int col = 0; col < width; col++) {
-	            	if(getObjectAt(row, col)!=null) {
-		                if(actor.getClass().equals(getObjectAt(row, col).getClass())
-		                && actor.getSex()!=getObjectAt(row, col).getSex()) {
-		                	allactors.add(new Location(row, col));
-		                }
-	            	}
+	    for(int row = 0; row < depth; row++) {
+	    	for(int col = 0; col < width; col++) {
+	    		if(getObjectAt(row, col)!=null) {
+	    			if(actor.getClass().equals(getObjectAt(row, col).getClass())
+		            && actor.getSex()!=getObjectAt(row, col).getSex()) {
+	    				allactors.add(new Location(row, col));
+		            }
 	            }
-	    	}
-    	}
+	        }
+	    }
     	if(!allactors.isEmpty()) {
     		return allactors;
     	}
