@@ -150,6 +150,8 @@ public class Fox extends Animal
         return null;
     }
     
+    
+    
     /**
      * Check whether or not this fox is to give birth at this step.
      * New births will be made into free adjacent locations.

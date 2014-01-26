@@ -31,7 +31,9 @@ public class Simulator
     // The probability that a rabbit will be created in any given grid position.
     private static final double RABBIT_CREATION_PROBABILITY = 0.07;    
     // The probability that a hunter will be created in any given grid position.
-    private static final double HUNTER_CREATION_PROBABILITY = 0.01;
+    private static final double HUNTER_CREATION_PROBABILITY = 0.01;    
+    // The probability that an alligator will be created in any given grid position.
+    private static final double ALLIGATOR_CREATION_PROBABILITY = 0.005;
     // List of animals in the field.
     private static List<Actor> actors;
     // The current state of the field.
@@ -73,6 +75,7 @@ public class Simulator
         view.getSim().setColor(Rabbit.class, Color.orange);
         view.getSim().setColor(Fox.class, Color.blue);
         view.getSim().setColor(Hunter.class, Color.red);
+        view.getSim().setColor(Alligator.class,  Color.green);
         // Setup a valid starting point.
         reset();
     }
@@ -159,6 +162,11 @@ public class Simulator
                     Location location = new Location(row, col);
                     Rabbit rabbit = new Rabbit(true, field, location);
                     actors.add(rabbit);
+                }
+                else if(rand.nextDouble() <= ALLIGATOR_CREATION_PROBABILITY) {
+                    Location location = new Location(row, col);
+                    Alligator alligator = new Alligator(true, field, location);
+                    actors.add(alligator);
                 }
                 // else leave the location empty.
             }
