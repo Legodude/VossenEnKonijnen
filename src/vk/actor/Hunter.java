@@ -169,7 +169,7 @@ public class Hunter extends Animal {
     	int current = this.getLocation().getCol() + this.getLocation().getRow();
     	Location mate = null;
     	Field field = getField();
-    	if(field.getAllCompatibleActors(this)!=null) {
+    	if(field.getAllCompatibleActors(this)!=null && mate() == false && canBreed() == true) {
     		List<Location> all = field.getAllCompatibleActors(this);
 	    	for(int a = 0; a < all.size(); a++) {
 	    		int comparable = all.get(a).getRow() + all.get(a).getCol();
