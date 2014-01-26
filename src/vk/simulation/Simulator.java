@@ -29,7 +29,7 @@ public class Simulator
     // The probability that a fox will be created in any given grid position.
     private static final double FOX_CREATION_PROBABILITY = 0.02;
     // The probability that a rabbit will be created in any given grid position.
-    private static final double RABBIT_CREATION_PROBABILITY = 0.07;    
+    private static final double RABBIT_CREATION_PROBABILITY = 0.10;    
     // The probability that a hunter will be created in any given grid position.
     private static final double HUNTER_CREATION_PROBABILITY = 0.01;    
     // The probability that an alligator will be created in any given grid position.
@@ -128,7 +128,7 @@ public class Simulator
     /**
      * Reset the simulation to a starting position.
      */
-    public void reset()
+    public static void reset()
     {
         step = 0;
         actors.clear();
@@ -141,7 +141,7 @@ public class Simulator
     /**
      * Randomly populate the field with foxes and rabbits.
      */
-    private void populate()
+    private static void populate()
     {
         Random rand = Randomizer.getRandom();
         field.clear();

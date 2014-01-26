@@ -11,7 +11,7 @@ public class ControlView extends JPanel implements ActionListener {
 	 */
 	private static final long serialVersionUID = 9213132259620958842L;
 	
-    private JButton oneStep, hundredStep;
+    private JButton oneStep, hundredStep, reset;
 
     public ControlView()
     {
@@ -19,12 +19,17 @@ public class ControlView extends JPanel implements ActionListener {
         oneStep.setText("One Step");
         oneStep.setActionCommand("oneStep");
         oneStep.addActionListener(this);
+        reset = new JButton();
+        reset.setText("Reset");
+        reset.setActionCommand("reset");
+        reset.addActionListener(this);
         hundredStep = new JButton();
         hundredStep.setText("Hundred Steps");
         hundredStep.setActionCommand("hundredStep");
         hundredStep.addActionListener(this);
         this.add(oneStep);
         this.add(hundredStep);
+        this.add(reset);
         this.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
     }
     
@@ -37,6 +42,10 @@ public class ControlView extends JPanel implements ActionListener {
     	if(event.getActionCommand().equals("hundredStep"))
     	{
     		Simulator.simulate(100);
+    	}
+    	if(event.getActionCommand().equals("reset"))
+    	{
+    		Simulator.reset();
     	}
     }
 }
