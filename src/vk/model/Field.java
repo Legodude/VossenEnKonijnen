@@ -22,6 +22,9 @@ public class Field
     private int depth, width;
     // Storage for the animals.
     private Object[][] field;
+    //Locationtype can be either grass, water or empty. These special types both have,
+    //advantages and disadvantages for different animal species.
+    private String locationtype;
 
     /**
      * Represent a field of the given dimensions.

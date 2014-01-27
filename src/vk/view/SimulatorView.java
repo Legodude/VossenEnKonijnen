@@ -38,7 +38,7 @@ public class SimulatorView extends JFrame
         Container contents = getContentPane();
         contents.add(sim,BorderLayout.CENTER);
         contents.add(controls,BorderLayout.WEST);
-        contents.add(new MenuBar());
+       // contents.add(new MenuBar());
         pack();
         setVisible(true);
     }

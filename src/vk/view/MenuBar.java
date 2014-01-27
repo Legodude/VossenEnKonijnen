@@ -9,7 +9,7 @@ public class MenuBar extends JMenuBar {
 
 	public MenuBar()
 	{		
-		this.add(new FileMenu("File"));
+		//this.add(new FileMenu("File"));
 		
 	}
 	
