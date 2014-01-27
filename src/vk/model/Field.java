@@ -53,7 +53,10 @@ public class Field
      */
     public void clear(Location location)
     {
-        field[location.getRow()][location.getCol()] = null;
+    	if(location.getRow()<depth&&location.getCol()<width)
+    	{
+    		field[location.getRow()][location.getCol()] = null;
+    	}
     }
     
     /**
