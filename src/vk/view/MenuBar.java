@@ -2,18 +2,15 @@ package vk.view;
 
 import javax.swing.*;
 
-import java.awt.*;
 
-public class MenuBar extends JFrame {
+public class MenuBar extends JMenuBar {
+
+	private static final long serialVersionUID = 851431801870525729L;
 
 	public MenuBar()
-	{
-		JMenuBar menuBar = new JMenuBar();
-		setJMenuBar(menuBar);
-		JMenu fileMenu = new JMenu("File");
-		menuBar.add(fileMenu);
-	
-	
+	{		
+		this.add(new FileMenu("File"));
+		
 	}
 	
 	
