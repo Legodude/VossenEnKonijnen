@@ -17,18 +17,21 @@ public class ControlView extends JPanel implements ActionListener {
     {
     	// Simulate one step
         oneStep = new JButton();
-        oneStep.setText("One Step");
+        oneStep.setText("<HTML><U>O</U>ne Step</HTML>");
         oneStep.setActionCommand("oneStep");
         oneStep.addActionListener(this);
+        oneStep.setMnemonic(KeyEvent.VK_O);
         // Reset the simulation
         reset = new JButton();
-        reset.setText("Reset");
+        reset.setText("<HTML><U>R</U>eset</HTML>");
         reset.setActionCommand("reset");
         reset.addActionListener(this);
+        reset.setMnemonic(KeyEvent.VK_R);
         // Simulate a hundred steps
         hundredStep = new JButton();
-        hundredStep.setText("Hundred Steps");
+        hundredStep.setText("<HTML><U>H</U>undred Steps</HTML>");
         hundredStep.setActionCommand("hundredStep");
+        hundredStep.setMnemonic(KeyEvent.VK_H);
         hundredStep.addActionListener(this);
         this.add(oneStep);
         this.add(hundredStep);

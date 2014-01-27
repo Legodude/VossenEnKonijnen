@@ -1,5 +1,7 @@
 package vk.view;
 
+import java.awt.event.KeyEvent;
+
 import javax.swing.*;
 
 import vk.view.menu.*;
@@ -11,7 +13,9 @@ public class VKMenuBar extends JMenuBar {
 
 	public VKMenuBar()
 	{		
-		this.add(new FileTab());
+		FileTab fileTab = new FileTab();
+		fileTab.setMnemonic(KeyEvent.VK_F);
+		this.add(fileTab);
 	}
 	
 	

@@ -12,7 +12,7 @@ public class FileTab extends JMenu {
 
 	public FileTab()
 	{
-		super("File");
-		this.add(new SettingsTab());
+		super("<HTML><U>F</U>ile</HTML>");
+		this.add(new SettingsItem());
 	}
 }
