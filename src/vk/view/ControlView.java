@@ -29,9 +29,9 @@ public class ControlView extends JPanel implements ActionListener {
         reset.setMnemonic(KeyEvent.VK_R);
         // Simulate a hundred steps
         hundredStep = new JButton();
-        hundredStep.setText("<HTML><U>H</U>undred Steps</HTML>");
+        hundredStep.setText("<HTML>H<U>u</U>ndred Steps</HTML>");
         hundredStep.setActionCommand("hundredStep");
-        hundredStep.setMnemonic(KeyEvent.VK_H);
+        hundredStep.setMnemonic(KeyEvent.VK_U);
         hundredStep.addActionListener(this);
         this.add(oneStep);
         this.add(hundredStep);

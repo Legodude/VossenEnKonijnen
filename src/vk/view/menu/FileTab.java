@@ -7,7 +7,7 @@ import java.awt.event.KeyEvent;
 import javax.swing.JMenu;
 
 import vk.view.menu.item.*;
-import vk.view.windows.HelpFrame;
+import vk.view.windows.*;
 
 public class FileTab extends JMenu implements ActionListener {
 
@@ -37,12 +37,13 @@ public class FileTab extends JMenu implements ActionListener {
 		System.out.println(event.getActionCommand());
 		if(event.getActionCommand().equals("settingsItem"))
 		{
-			
+			SettingsFrame settingsFrame = new SettingsFrame();
+			settingsFrame.setVisible(true);
 		}
 		if(event.getActionCommand().equals("helpItem"))
 		{
 			HelpFrame helpFrame = new HelpFrame();
-			helpFrame.show();
+			helpFrame.setVisible(true);
 		}
 		
 	}
