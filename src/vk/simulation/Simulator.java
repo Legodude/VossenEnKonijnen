@@ -31,9 +31,11 @@ public class Simulator
     // The probability that a rabbit will be created in any given grid position.
     private static final double RABBIT_CREATION_PROBABILITY = 0.10;    
     // The probability that a hunter will be created in any given grid position.
-    private static final double HUNTER_CREATION_PROBABILITY = 0.01;    
+    private static final double HUNTER_CREATION_PROBABILITY = 0.015;    
     // The probability that an alligator will be created in any given grid position.
-    private static final double ALLIGATOR_CREATION_PROBABILITY = 0.005;
+    private static final double ALLIGATOR_CREATION_PROBABILITY = 0.01;
+ // The probability that an alligator will be created in any given grid position.
+    private static final double ZOMBIE_RABBIT_CREATION_PROBABILITY = 0.005;
     // List of animals in the field.
     private static List<Actor> actors;
     // The current state of the field.
@@ -75,7 +77,8 @@ public class Simulator
         view.getSim().setColor(Rabbit.class, Color.orange);
         view.getSim().setColor(Fox.class, Color.blue);
         view.getSim().setColor(Hunter.class, Color.red);
-        view.getSim().setColor(Alligator.class,  Color.green);
+        view.getSim().setColor(Alligator.class, new Color(52,151,52));
+        view.getSim().setColor(ZombieRabbit.class, new Color(170,255,170));
         // Setup a valid starting point.
         reset();
     }
@@ -161,6 +164,11 @@ public class Simulator
                 else if(rand.nextDouble() <= RABBIT_CREATION_PROBABILITY) {
                     Location location = new Location(row, col);
                     Rabbit rabbit = new Rabbit(true, field, location);
+                    actors.add(rabbit);
+                }
+                else if(rand.nextDouble() <= ZOMBIE_RABBIT_CREATION_PROBABILITY) {
+                    Location location = new Location(row, col);
+                    ZombieRabbit rabbit = new ZombieRabbit(true, field, location);
                     actors.add(rabbit);
                 }
                 else if(rand.nextDouble() <= ALLIGATOR_CREATION_PROBABILITY) {

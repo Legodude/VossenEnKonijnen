@@ -155,4 +155,12 @@ public class Rabbit extends Animal
     {
         return age >= BREEDING_AGE;
     }
+    /**
+     * get the age of the rabbit
+     * @return age
+     */
+    public int getAge()
+    {
+    	return age;
+    }
 }
