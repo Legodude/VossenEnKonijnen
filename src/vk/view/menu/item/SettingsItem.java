@@ -10,6 +10,6 @@ public class SettingsItem extends JMenuItem {
 
 	public SettingsItem()
 	{
-		super("Settings");
+		super("<HTML><U>S</U>ettings</HTML>");
 	}
 }

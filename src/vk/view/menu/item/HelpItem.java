@@ -1,4 +1,4 @@
-package vk.view.menu;
+package vk.view.menu.item;
 
 import javax.swing.JMenuItem;
 

@@ -2,6 +2,7 @@ package vk.view.menu;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 
 import javax.swing.JMenu;
 
@@ -22,11 +23,13 @@ public class FileTab extends JMenu implements ActionListener {
 		this.add(settingsItem);
 		settingsItem.setActionCommand("settingsItem");
         settingsItem.addActionListener(this);
+        settingsItem.setMnemonic(KeyEvent.VK_S);
         
         HelpItem helpItem = new HelpItem();
 		this.add(helpItem);
 		helpItem.setActionCommand("helpItem");
         helpItem.addActionListener(this);
+        helpItem.setMnemonic(KeyEvent.VK_H);
         
 	}
 	
