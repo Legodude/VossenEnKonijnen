@@ -166,11 +166,6 @@ public class Simulator
                     Rabbit rabbit = new Rabbit(true, field, location);
                     actors.add(rabbit);
                 }
-                else if(rand.nextDouble() <= ZOMBIE_RABBIT_CREATION_PROBABILITY) {
-                    Location location = new Location(row, col);
-                    ZombieRabbit rabbit = new ZombieRabbit(true, field, location);
-                    actors.add(rabbit);
-                }
                 else if(rand.nextDouble() <= ALLIGATOR_CREATION_PROBABILITY) {
                     Location location = new Location(row, col);
                     Alligator alligator = new Alligator(true, field, location);
