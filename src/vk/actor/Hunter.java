@@ -13,7 +13,7 @@ public class Hunter extends Animal {
     // Characteristics shared by all foxes (static fields).
     
     // The age at which a fox can start to breed.
-    private static final int BREEDING_AGE = 16;//16 and pregnant :D
+    private static final int BREEDING_AGE = 12;
     // The age to which a fox can live.
     private static final int MAX_AGE = 100;
     // The likelihood of a fox breeding.
@@ -189,14 +189,14 @@ public class Hunter extends Animal {
     	int movementcol;
     	int movementrow;
     	int closest = 999999;
-    	int current = this.getLocation().getCol() + this.getLocation().getRow();
     	Location mate = null;
     	Field field = getField();
-    	if(field.getAllCompatibleActors(this)!=null && mate() == false && canBreed() == true) {
+    	if(field.getAllCompatibleActors(this)!=null && mate() == false && age>=BREEDING_AGE*0.5) {
     		List<Location> all = field.getAllCompatibleActors(this);
 	    	for(int a = 0; a < all.size(); a++) {
-	    		int comparable = all.get(a).getRow() + all.get(a).getCol();
-	    		if(current-comparable<closest) {
+	    		int comparable = Math.abs(this.getLocation().getRow()-all.get(a).getRow()) + 
+	    						 Math.abs(this.getLocation().getCol()-all.get(a).getCol());
+	    		if(comparable<closest) {
 	    			closest = comparable;
 	    			mate = all.get(a);
 	    		}
@@ -205,13 +205,13 @@ public class Hunter extends Animal {
 	    		movementcol = this.getLocation().getCol()+1;
 	    	}
 	    	else {
-	    		movementcol = mate.getCol()+1;
+	    		movementcol = this.getLocation().getCol()-1;
 	    	}
 	    	if(mate.getRow()>this.getLocation().getRow()) {
 	    		movementrow = this.getLocation().getRow()+1;
 	    	}
 	    	else {
-	    		movementrow = mate.getRow()+1;
+	    		movementrow = this.getLocation().getRow()-1;
 	    	}
 	    	if(mate.getCol()==this.getLocation().getCol()) {
 	    		route = new Location(movementrow,mate.getCol());
