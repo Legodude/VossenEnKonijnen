@@ -29,11 +29,11 @@ public class Simulator
     // The probability that a fox will be created in any given grid position.
     private static final double FOX_CREATION_PROBABILITY = 0.02;
     // The probability that a rabbit will be created in any given grid position.
-    private static final double RABBIT_CREATION_PROBABILITY = 0.10;    
+    private static final double RABBIT_CREATION_PROBABILITY = 0.1;    
     // The probability that a hunter will be created in any given grid position.
     private static final double HUNTER_CREATION_PROBABILITY = 0.015;    
     // The probability that an alligator will be created in any given grid position.
-    private static final double ALLIGATOR_CREATION_PROBABILITY = 0.01;
+    private static final double ALLIGATOR_CREATION_PROBABILITY = 0.015;
     // List of animals in the field.
     private static List<Actor> actors;
     // The current state of the field.

@@ -19,16 +19,16 @@ public class Alligator extends Animal
     // Characteristics shared by all alligators (static fields).
 
     // The age at which an alligator can start to breed.
-    private static final int BREEDING_AGE = 12;
+    private static final int BREEDING_AGE = 10;
     // The age to which an alligator can live.
-    private static final int MAX_AGE = 200;
+    private static final int MAX_AGE = 50;
     // The likelihood of an alligator breeding.
-    private static final double BREEDING_PROBABILITY = 0.50;
+    private static final double BREEDING_PROBABILITY = 0.45;
     // The food value of a single rabbit, fox and hunter. In effect, this is the
     // number of steps an alligator can go before it has to eat again.
     private static final int RABBIT_FOOD_VALUE = 7;
     private static final int FOX_FOOD_VALUE = 5;
-    private static final int HUNTER_FOOD_VALUE = 10;
+    private static final int HUNTER_FOOD_VALUE = 12;
     // The maximum number of births.    
     private static final int MAX_LITTER_SIZE = 6;
     // A shared random number generator to control breeding.
