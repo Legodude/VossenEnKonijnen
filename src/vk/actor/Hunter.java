@@ -25,7 +25,7 @@ public class Hunter extends Animal {
     private static final int RABBIT_FOOD_VALUE = 8;
     // A shared random number generator to control breeding.
     private static final Random rand = Randomizer.getRandom();
-	private static final int FOX_FOOD_VALUE = 6;
+	private static final int FOX_FOOD_VALUE = 10;
 	
     // Individual characteristics (instance fields).
     // The fox's age.
@@ -53,7 +53,7 @@ public class Hunter extends Animal {
         }
         else {
             age = 0;
-            foodLevel = RABBIT_FOOD_VALUE;
+            foodLevel = FOX_FOOD_VALUE;
         }
     }
     
@@ -66,6 +66,7 @@ public class Hunter extends Animal {
      */
     public void act(List<Actor> newHunter)
     {
+    	Field field = getField();
         incrementAge();
         incrementHunger();
         if(isAlive()) {
@@ -78,11 +79,18 @@ public class Hunter extends Animal {
                 newLocation = closestMate();
             }
             // See if it was possible to move.
-            if(newLocation != null) {
-                setLocation(newLocation);
+            if(newLocation!=null) {
+	            if(newLocation.getCol()>0 ||
+	               newLocation.getRow()>0 ||
+	               newLocation.getCol()<field.getDepth() ||
+	               newLocation.getCol()<field.getWidth()) {
+	                setLocation(newLocation);
+	            }
+	            else {
+	            	setDead();
+	            }
             }
             else {
-                // Overcrowding.
                 setDead();
             }
         }
@@ -191,7 +199,7 @@ public class Hunter extends Animal {
     	int closest = 999999;
     	Location mate = null;
     	Field field = getField();
-    	if(field.getAllCompatibleActors(this)!=null && mate() == false && age>=BREEDING_AGE*0.5) {
+    	if(field.getAllCompatibleActors(this)!=null && mate() == false) {
     		List<Location> all = field.getAllCompatibleActors(this);
 	    	for(int a = 0; a < all.size(); a++) {
 	    		int comparable = Math.abs(this.getLocation().getRow()-all.get(a).getRow()) + 

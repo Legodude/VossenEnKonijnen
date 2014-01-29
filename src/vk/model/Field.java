@@ -81,7 +81,7 @@ public class Field
      */
     public void place(Object animal, Location location)
     {
-        field[location.getRow()][location.getCol()] = animal;
+    	field[location.getRow()][location.getCol()] = animal;
     }
     
     /**
