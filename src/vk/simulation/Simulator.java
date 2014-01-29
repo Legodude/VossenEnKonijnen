@@ -121,8 +121,8 @@ public class Simulator
             if(! actor.isAlive()) {
                 it.remove();
             }
+
         }
-               
         actors.addAll(newActors);
 
         view.getSim().showStatus(step, field);
@@ -152,34 +152,27 @@ public class Simulator
             for(int col = 0; col < field.getWidth(); col++) {
                 if(rand.nextDouble() <= FOX_CREATION_PROBABILITY) {
                     Location location = new Location(row, col);
-                    Fox fox = new Fox(true, field, location);
+                    Fox fox = new Fox(false, field, location);
                     actors.add(fox);
                 }
                 else if(rand.nextDouble() <= HUNTER_CREATION_PROBABILITY)
                 {
                 	Location location = new Location (row, col);
-                	Hunter hunter = new Hunter(true, field, location);
+                	Hunter hunter = new Hunter(false, field, location);
                 	actors.add(hunter);
                 }
                 else if(rand.nextDouble() <= RABBIT_CREATION_PROBABILITY) {
                     Location location = new Location(row, col);
-                    Rabbit rabbit = new Rabbit(true, field, location);
-                    actors.add(rabbit);
-                }
-                else if(rand.nextDouble() <= ZOMBIE_RABBIT_CREATION_PROBABILITY) {
-                    Location location = new Location(row, col);
-                    ZombieRabbit rabbit = new ZombieRabbit(true, field, location);
+                    Rabbit rabbit = new Rabbit(false, field, location);
                     actors.add(rabbit);
                 }
                 else if(rand.nextDouble() <= ALLIGATOR_CREATION_PROBABILITY) {
                     Location location = new Location(row, col);
-                    Alligator alligator = new Alligator(true, field, location);
+                    Alligator alligator = new Alligator(false, field, location);
                     actors.add(alligator);
                 }
                 // else leave the location empty.
             }
         }
     }
-    
-    
 }

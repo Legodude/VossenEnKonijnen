@@ -3,6 +3,7 @@ package vk.actor;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Random;
 
 import vk.model.Field;
 import vk.model.Location;
@@ -14,6 +15,7 @@ public class ZombieRabbit extends Animal{
 	private char sex;
 	private static final int MAX_AGE = 40;
 	private static final double INFECTION_CHANCE = 0.5;
+	private static final double MOVEMENT_CHANCE = 0.2;
 	
 	public ZombieRabbit(boolean alive, Field field, Location location){
 		super(field, location);
@@ -34,7 +36,29 @@ public class ZombieRabbit extends Animal{
         if(isAlive()) {
         	Location location = getLocation();
         	infectRabbit(location,newZombieRabbits);
+        	Location newLocation = getField().freeAdjacentLocation(getLocation());
+        	if(newLocation != null) {
+        		if(movement() == true) {
+        			setLocation(newLocation);
+        		}
+        	}
+        	else {
+        		setDead();
+        	}
         }
+    }
+    
+    /**
+     * The chance that the zombie rabbit moves
+     * @return true or false
+     */
+    private boolean movement() {
+    	Random rand = Randomizer.getRandom();
+    	double random = rand.nextDouble();
+    	if(random < MOVEMENT_CHANCE) {
+    		return true;
+    	}
+    	return false;
     }
     
     /**
