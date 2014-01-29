@@ -66,9 +66,15 @@ public class Rabbit extends Animal
         	infectionChance(newRabbits);
         }
         if(isAlive()) {
+        	Location newLocation;
             giveBirth(newRabbits);            
             // Try to move into a free location.
-            Location newLocation = getField().freeAdjacentLocation(getLocation());
+            if(avoidZombies()!=null) {
+            	newLocation = avoidZombies();
+            }
+            else {
+            	newLocation = getField().freeAdjacentLocation(getLocation());	
+            }
             if(newLocation != null) {
                 setLocation(newLocation);
             }
@@ -133,6 +139,27 @@ public class Rabbit extends Animal
 	            newRabbits.add(young);
 	        }
         }
+    }
+    
+    /**
+     * This method returns a new location, away from the closeby zombie rabbit!
+     * @return the new Location!
+     */
+    private Location avoidZombies() {
+    	Field field = getField();
+    	Location current = getLocation();
+    	List<Location> locations = field.adjacentLocations(getLocation(), 2);
+    	if(locations.isEmpty()) {
+    		for(int a = 0; a < locations.size(); a++) {
+    			Location comparable = locations.get(a);
+    			if(field.getObjectAt(comparable.getRow(), comparable.getCol()) instanceof ZombieRabbit) {
+    				int row = (comparable.getRow()-current.getRow()) *-1;
+    				int col = (comparable.getCol()-current.getRow()) *-1;
+    				return new Location(getLocation().getRow()+row, getLocation().getCol()+col);
+    			}
+    		}
+    	}
+    	return null;
     }
     
     /**
