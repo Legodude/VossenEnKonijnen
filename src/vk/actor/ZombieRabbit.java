@@ -13,7 +13,7 @@ public class ZombieRabbit extends Animal{
 
 	private int age;
 	private char sex;
-	private static final int MAX_AGE = 40;
+	private static final int MAX_AGE = 15;
 	private static final double INFECTION_CHANCE = 0.5;
 	private static final double MOVEMENT_CHANCE = 0.2;
 	

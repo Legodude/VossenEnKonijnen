@@ -34,8 +34,6 @@ public class Simulator
     private static final double HUNTER_CREATION_PROBABILITY = 0.015;    
     // The probability that an alligator will be created in any given grid position.
     private static final double ALLIGATOR_CREATION_PROBABILITY = 0.01;
- // The probability that an alligator will be created in any given grid position.
-    private static final double ZOMBIE_RABBIT_CREATION_PROBABILITY = 0.005;
     // List of animals in the field.
     private static List<Actor> actors;
     // The current state of the field.

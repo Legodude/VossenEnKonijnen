@@ -16,8 +16,6 @@ public class Hunter extends Animal {
     private static final int BREEDING_AGE = 16;//16 and pregnant :D
     // The age to which a fox can live.
     private static final int MAX_AGE = 100;
-    // The probability of a hunter shooting a rabbit/fox
-    private static final double HIT_CHANCE = 0.5;
     // The likelihood of a fox breeding.
     private static final double BREEDING_PROBABILITY = 0.90;
     // The maximum number of births.
