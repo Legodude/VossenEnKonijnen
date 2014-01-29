@@ -27,8 +27,6 @@ public class Rabbit extends Animal
     private static final int MAX_LITTER_SIZE = 4;
     // A shared random number generator to control breeding.
     private static final Random rand = Randomizer.getRandom();
-    // Random infection chance
-    private static final double INFECTION_CHANCE = 1;
 
     // Individual characteristics (instance fields).
     // The rabbit's age.
@@ -63,9 +61,6 @@ public class Rabbit extends Animal
     {
         incrementAge();
         if(isAlive()) {
-        	infectionChance();
-        }
-        if(isAlive()) {
             giveBirth(newRabbits);            
             // Try to move into a free location.
             Location newLocation = getField().freeAdjacentLocation(getLocation());
@@ -98,20 +93,6 @@ public class Rabbit extends Animal
             setDead();
         }
     }
-    
-    /**
-     * This method gives the rabbit a chance to get sick and turn into a zombie rabbit
-     */
-    private void infectionChance()
-    {
-    	Field field = getField();
-    	double random = rand.nextInt(10001);
-    	if(random==INFECTION_CHANCE) {
-    		Location location = getLocation();
-    		setDead();
-            new ZombieRabbit(true, field, location);
-    	}
-	}
     
     /**
      * Check whether or not this rabbit is to give birth at this step.
