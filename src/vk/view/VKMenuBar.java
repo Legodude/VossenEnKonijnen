@@ -16,6 +16,9 @@ public class VKMenuBar extends JMenuBar {
 		FileTab fileTab = new FileTab();
 		fileTab.setMnemonic(KeyEvent.VK_F);
 		this.add(fileTab);
+		GraphTab graphTab = new GraphTab();
+		graphTab.setMnemonic(KeyEvent.VK_G);
+		this.add(graphTab);
 	}
 	
 	
