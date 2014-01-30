@@ -84,7 +84,12 @@ public class Hunter extends Animal {
 	               newLocation.getRow()>=0 &&
 	               newLocation.getCol()<=field.getDepth() &&
 	               newLocation.getRow()<=field.getWidth()) {
-	                setLocation(newLocation);
+	            	if(getField().getObjectAt(newLocation)==null){
+	            		setLocation(newLocation);
+	            	}
+	            	else{
+	            		//setLocation(avoidAlligators());
+	            	}
 	            }
 	            else {
 	            	setDead();
@@ -94,6 +99,23 @@ public class Hunter extends Animal {
                 setDead();
             }
         }
+    }
+    
+    private Location avoidAlligators() {
+    	Field field = getField();
+    	Location current = getLocation();
+    	List<Location> locations = field.adjacentLocations(getLocation(), 2);
+    	if(locations.isEmpty()) {
+    		for(int a = 0; a < locations.size(); a++) {
+    			Location comparable = locations.get(a);
+    			if(field.getObjectAt(comparable.getRow(), comparable.getCol()) instanceof Alligator) {
+    				int row = (comparable.getRow()-current.getRow()) *-1;
+    				int col = (comparable.getCol()-current.getRow()) *-1;
+    				return new Location(getLocation().getRow()+row, getLocation().getCol()+col);
+    			}
+    		}
+    	}
+    	return null;
     }
     
     /**
