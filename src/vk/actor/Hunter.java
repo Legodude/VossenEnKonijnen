@@ -80,10 +80,10 @@ public class Hunter extends Animal {
             }
             // See if it was possible to move.
             if(newLocation!=null) {
-	            if(newLocation.getCol()>0 ||
-	               newLocation.getRow()>0 ||
-	               newLocation.getCol()<field.getDepth() ||
-	               newLocation.getCol()<field.getWidth()) {
+	            if(newLocation.getCol()>=0 &&
+	               newLocation.getRow()>=0 &&
+	               newLocation.getCol()<=field.getDepth() &&
+	               newLocation.getRow()<=field.getWidth()) {
 	                setLocation(newLocation);
 	            }
 	            else {
