@@ -88,7 +88,7 @@ public class Hunter extends Animal {
 	            		setLocation(newLocation);
 	            	}
 	            	else{
-	            		//setLocation(avoidAlligators());
+	            		setLocation(field.randomAdjacentLocation(getLocation()));
 	            	}
 	            }
 	            else {
@@ -101,22 +101,6 @@ public class Hunter extends Animal {
         }
     }
     
-    private Location avoidAlligators() {
-    	Field field = getField();
-    	Location current = getLocation();
-    	List<Location> locations = field.adjacentLocations(getLocation(), 2);
-    	if(locations.isEmpty()) {
-    		for(int a = 0; a < locations.size(); a++) {
-    			Location comparable = locations.get(a);
-    			if(field.getObjectAt(comparable.getRow(), comparable.getCol()) instanceof Alligator) {
-    				int row = (comparable.getRow()-current.getRow()) *-1;
-    				int col = (comparable.getCol()-current.getRow()) *-1;
-    				return new Location(getLocation().getRow()+row, getLocation().getCol()+col);
-    			}
-    		}
-    	}
-    	return null;
-    }
     
     /**
      * The getter for the sex of the hunter.
