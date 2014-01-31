@@ -1,6 +1,7 @@
 package vk.view;
 
 import java.awt.event.*;
+import java.awt.Image.*;
 import javax.swing.*;
 import vk.simulation.*;
 
@@ -21,12 +22,14 @@ public class ControlView extends JPanel implements ActionListener {
         oneStep.setActionCommand("oneStep");
         oneStep.addActionListener(this);
         oneStep.setMnemonic(KeyEvent.VK_O);
+        
         // Reset the simulation
         reset = new JButton();
-        reset.setText("<HTML><U>R</U>eset</HTML>");
-        reset.setActionCommand("reset");
+        reset.setText("<HTML><U>N</U>uke</HTML>");
+        reset.setActionCommand("nuke");
         reset.addActionListener(this);
-        reset.setMnemonic(KeyEvent.VK_R);
+        reset.setMnemonic(KeyEvent.VK_N);
+        
         // Simulate a hundred steps
         hundredStep = new JButton();
         hundredStep.setText("<HTML>H<U>u</U>ndred Steps</HTML>");
@@ -49,7 +52,7 @@ public class ControlView extends JPanel implements ActionListener {
     	{
     		Simulator.simulate(100);
     	}
-    	if(event.getActionCommand().equals("reset"))
+    	if(event.getActionCommand().equals("nuke"))
     	{
     		Simulator.reset();
     	}

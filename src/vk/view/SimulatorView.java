@@ -41,6 +41,7 @@ public class SimulatorView extends JFrame
         this.setJMenuBar(new VKMenuBar());
         pack();
         setVisible(true);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
     
     public SimView getSim()
