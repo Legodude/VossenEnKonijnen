@@ -6,6 +6,9 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.awt.Color;
 
+
+
+
 import vk.actor.*;
 import vk.model.*;
 import vk.view.*;
@@ -19,8 +22,8 @@ import vk.view.*;
  */
 
 
-public class Simulator 
-{
+public class Simulator implements Runnable
+{	
     // Constants representing configuration information for the simulation.
     // The default width for the grid.
     private static final int DEFAULT_WIDTH = 100;
@@ -43,6 +46,9 @@ public class Simulator
     // A graphical view of the simulation.
     private static SimulatorView view;
     
+    private static boolean running = false;
+    private static boolean run = false;
+    public static Thread thread;
     /**
      * Construct a simulation field with default size.
      */
@@ -69,7 +75,7 @@ public class Simulator
         
         actors = new ArrayList<Actor>();
         field = new Field(depth, width);
-
+        thread = new Thread(this);
         // Create a view of the state of each location in the field.
         view = new SimulatorView(depth, width);
         view.getSim().setColor(Rabbit.class, Color.orange);
@@ -97,9 +103,11 @@ public class Simulator
      */
     public static void simulate(int numSteps)
     {
+    	start();
         for(int step = 1; step <= numSteps && view.getSim().isViable(field); step++) {
             simulateOneStep();
         }
+        stop();
     }
     
     /**
@@ -171,6 +179,31 @@ public class Simulator
                 }
                 // else leave the location empty.
             }
+        }
+    }
+    public static void start(){
+        thread.start();
+    }
+
+    public void run(){
+        if(running == true)
+            return;
+        run = true;
+        while(run){
+            running = true;
+            simulateOneStep();
+            running = false;
+            try {
+				Thread.sleep(50);
+			} catch (InterruptedException e) {}
+        }
+    }
+    public static void stop () {
+        run = false;
+        while(running){
+            try {
+                Thread.sleep(1);
+            } catch (InterruptedException ex) {}
         }
     }
 }

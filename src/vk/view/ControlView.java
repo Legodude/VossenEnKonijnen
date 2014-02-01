@@ -12,7 +12,7 @@ public class ControlView extends JPanel implements ActionListener {
 	 */
 	private static final long serialVersionUID = 9213132259620958842L;
 	
-    private JButton oneStep, hundredStep, reset;
+    private JButton oneStep, run, nuke,stop;
 
     public ControlView()
     {
@@ -23,22 +23,30 @@ public class ControlView extends JPanel implements ActionListener {
         oneStep.addActionListener(this);
         oneStep.setMnemonic(KeyEvent.VK_O);
         
-        // Reset the simulation
-        reset = new JButton();
-        reset.setText("<HTML><U>N</U>uke</HTML>");
-        reset.setActionCommand("nuke");
-        reset.addActionListener(this);
-        reset.setMnemonic(KeyEvent.VK_N);
+        // nuke the simulation
+        nuke = new JButton();
+        nuke.setText("<HTML><U>N</U>uke</HTML>");
+        nuke.setActionCommand("nuke");
+        nuke.addActionListener(this);
+        nuke.setMnemonic(KeyEvent.VK_N);
         
-        // Simulate a hundred steps
-        hundredStep = new JButton();
-        hundredStep.setText("<HTML>H<U>u</U>ndred Steps</HTML>");
-        hundredStep.setActionCommand("hundredStep");
-        hundredStep.setMnemonic(KeyEvent.VK_U);
-        hundredStep.addActionListener(this);
+        // Simulate
+        run = new JButton();
+        run.setText("<HTML>R<U>u</U>n</HTML>");
+        run.setActionCommand("run");
+        run.setMnemonic(KeyEvent.VK_U);
+        run.addActionListener(this);
+        
+        // Stop
+        stop = new JButton();
+        stop.setText("<HTML><U>S</U>top</HTML>");
+        stop.setActionCommand("run");
+        stop.setMnemonic(KeyEvent.VK_S);
+        stop.addActionListener(this);
         this.add(oneStep);
-        this.add(hundredStep);
-        this.add(reset);
+        this.add(run);
+        this.add(stop);
+        this.add(nuke);
         this.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
     }
     
@@ -46,14 +54,21 @@ public class ControlView extends JPanel implements ActionListener {
     {
     	if(event.getActionCommand().equals("oneStep"))
     	{
+    		Simulator.stop();
     		Simulator.simulate(1);
+    		Simulator.stop();
     	}
-    	if(event.getActionCommand().equals("hundredStep"))
+    	if(event.getActionCommand().equals("run"))
     	{
-    		Simulator.simulate(100);
+    		Simulator.start();
+    	}
+    	if(event.getActionCommand().equals("stop"))
+    	{
+    		Simulator.stop();
     	}
     	if(event.getActionCommand().equals("nuke"))
     	{
+    		Simulator.stop();
     		Simulator.reset();
     	}
     }
