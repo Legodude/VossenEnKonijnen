@@ -26,7 +26,7 @@ public class Run extends JButton implements ActionListener {
 	public void actionPerformed(ActionEvent event) {
 		if(event.getActionCommand().equals("run"))
     	{
-    		Simulator.start();
+			Simulator.start();
     	}
 		
 	}

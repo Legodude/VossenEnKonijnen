@@ -27,9 +27,7 @@ public class OneStep extends JButton implements ActionListener {
 	public void actionPerformed(ActionEvent event) {
 		if(event.getActionCommand().equals("oneStep"))
     	{
-    		Simulator.stop();
-    		Simulator.simulate(1);
-    		Simulator.stop();
+    		Simulator.simulateOneStep();
     	}
 	}
 }

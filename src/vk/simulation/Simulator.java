@@ -37,6 +37,8 @@ public class Simulator implements Runnable
     private static final double HUNTER_CREATION_PROBABILITY = 0.015;    
     // The probability that an alligator will be created in any given grid position.
     private static final double ALLIGATOR_CREATION_PROBABILITY = 0.015;
+ // The probability that an Grass will be created in any given grid position.
+    private static final double GRASS_CREATION_PROBABILITY = 0.030;
     // List of animals in the field.
     private static List<Actor> actors;
     // The current state of the field.
@@ -83,6 +85,7 @@ public class Simulator implements Runnable
         view.getSim().setColor(Hunter.class, Color.red);
         view.getSim().setColor(Alligator.class, new Color(52,151,52));
         view.getSim().setColor(ZombieRabbit.class, new Color(170,255,170));
+        view.getSim().setColor(Grass.class, Color.pink);
         // Setup a valid starting point.
         reset();
     }
@@ -167,15 +170,23 @@ public class Simulator implements Runnable
                 	Hunter hunter = new Hunter(false, field, location);
                 	actors.add(hunter);
                 }
-                else if(rand.nextDouble() <= RABBIT_CREATION_PROBABILITY) {
+                else if(rand.nextDouble() <= RABBIT_CREATION_PROBABILITY)
+                {
                     Location location = new Location(row, col);
                     Rabbit rabbit = new Rabbit(false, field, location);
                     actors.add(rabbit);
                 }
-                else if(rand.nextDouble() <= ALLIGATOR_CREATION_PROBABILITY) {
+                else if(rand.nextDouble() <= ALLIGATOR_CREATION_PROBABILITY)
+                {
                     Location location = new Location(row, col);
                     Alligator alligator = new Alligator(false, field, location);
                     actors.add(alligator);
+                }
+                else if (rand.nextDouble() <= GRASS_CREATION_PROBABILITY)
+                {
+                    Location location = new Location(row, col);
+                    Grass grass = new Grass(field, location);
+                    actors.add(grass);
                 }
                 // else leave the location empty.
             }
