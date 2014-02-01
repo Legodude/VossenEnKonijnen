@@ -14,7 +14,7 @@ public class ControlView extends JPanel{
     public ControlView()
     {
         this.add(new OneStep());
-        this.add(new Nuke());
+        this.add(new Run());
         this.add(new Stop());
         this.add(new Nuke());
         this.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));

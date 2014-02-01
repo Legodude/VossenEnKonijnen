@@ -150,7 +150,7 @@ public class Simulator implements Runnable
     /**
      * Randomly populate the field with foxes and rabbits.
      */
-    private static void populate()
+    public static void populate()
     {
         Random rand = Randomizer.getRandom();
         field.clear();

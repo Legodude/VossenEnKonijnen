@@ -19,7 +19,7 @@ public class Nuke extends JButton implements ActionListener {
 
 	public Nuke()
 	{
-	    this.setText("<HTML><U>N</U>uke</HTML>");
+	    this.setText("<HTML><U>N</U>uke & Populate</HTML>");
 	    this.setActionCommand("nuke");
 	    this.addActionListener(this);
 	    this.setMnemonic(KeyEvent.VK_N);
