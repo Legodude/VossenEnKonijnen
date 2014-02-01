@@ -27,7 +27,7 @@ public class Rabbit extends Animal
     // The maximum number of births.
     private static final int MAX_LITTER_SIZE = 8;
     // number of steps an rabbit can go before it has to eat again
-    private static final int GRASS_FOOD_VALUE = 10;
+    private static final int GRASS_FOOD_VALUE = 30;
     // A shared random number generator to control breeding.
     private static final Random rand = Randomizer.getRandom();
     // Random infection chance
@@ -73,10 +73,19 @@ public class Rabbit extends Animal
         incrementAge();
         incrementHunger();
         if(isAlive()) {
+            infectionChance(newRabbits);
+        }
+        if(isAlive()) {
             giveBirth(newRabbits);            
             // Move towards a source of food if found.
             Location location = getLocation();
             Location newLocation = findFood(location);
+            if(avoidZombies()!=null) {
+            	newLocation = avoidZombies();
+            }
+            else {
+            	newLocation = getField().freeAdjacentLocation(getLocation());	
+            }
             if(newLocation == null) { 
                 // No food found - try to move to a free location.
                 newLocation = getField().freeAdjacentLocation(location);
