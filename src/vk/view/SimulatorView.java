@@ -29,7 +29,6 @@ public class SimulatorView extends JFrame
      */
     public SimulatorView(int height, int width)
     {
-        
         sim = new SimView(height,width);
         setTitle("Fox and Rabbit Simulation");
         controls = new ControlView();

@@ -7,6 +7,7 @@ import javax.swing.JPanel;
 
 import vk.actor.*;
 import vk.model.*;
+import vk.view.*;
 
 public class PieGraph extends JPanel{
 
@@ -27,7 +28,7 @@ public class PieGraph extends JPanel{
 		float gC=FieldStats.getCount(Grass.class);
 		float zC=FieldStats.getCount(ZombieRabbit.class);
 
-		float total = rC + fC + bC + hC + gC;
+		float total = rC + fC + bC + hC + gC + zC;
 
 		float temp = 0.0f;
 
@@ -45,16 +46,23 @@ public class PieGraph extends JPanel{
 
 		temp = (3.6f * ((gC/total)*100));
 		int gA = Math.round(temp);
-
-		gInput.setColor(this.model.getColor(Rabbit.class));
+		
+		temp = (3.6f * ((zC/total)*100));
+		int zA = Math.round(temp);
+		
+		gInput.setColor(SimView.getColor(Rabbit.class));
 		gInput.fillArc((this.getWidth()-this.cirkelSize)/2, (this.getHeight()-this.cirkelSize)/2, this.cirkelSize, this.cirkelSize, 0, rA);
-		gInput.setColor(this.model.getColor(Fox.class));
+		gInput.setColor(SimView.getColor(Fox.class));
 		gInput.fillArc((this.getWidth()-this.cirkelSize)/2, (this.getHeight()-this.cirkelSize)/2, this.cirkelSize, this.cirkelSize, rA, fA);
-		gInput.setColor(this.model.getColor(Bear.class));
+		gInput.setColor(SimView.getColor(Alligator.class));
 		gInput.fillArc((this.getWidth()-this.cirkelSize)/2, (this.getHeight()-this.cirkelSize)/2, this.cirkelSize, this.cirkelSize, (fA + rA) , bA);
-		gInput.setColor(this.model.getColor(Hunter.class));
+		gInput.setColor(SimView.getColor(Hunter.class));
 		gInput.fillArc((this.getWidth()-this.cirkelSize)/2, (this.getHeight()-this.cirkelSize)/2, this.cirkelSize, this.cirkelSize, (fA + rA + bA) , hA);
-		gInput.setColor(this.model.getColor(Grass.class));
+		gInput.setColor(SimView.getColor(Grass.class));
 		gInput.fillArc((this.getWidth()-this.cirkelSize)/2, (this.getHeight()-this.cirkelSize)/2, this.cirkelSize, this.cirkelSize, (fA + rA + bA + hA) , gA);
+		gInput.setColor(SimView.getColor(ZombieRabbit.class));
+		gInput.fillArc((this.getWidth()-this.cirkelSize)/2, (this.getHeight()-this.cirkelSize)/2, this.cirkelSize, this.cirkelSize, (fA + rA + bA + hA + gA) , zA);
+		
+		setVisible(true);
 	}
 }
