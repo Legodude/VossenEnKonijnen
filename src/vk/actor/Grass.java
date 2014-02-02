@@ -12,7 +12,7 @@ public class Grass extends Animal {
     // The age at which a grass can start to breed.
     private static final int BREEDING_AGE = 0;
     // The age to which a grass can live.
-    private static final int MAX_AGE = 15;
+    private static final int MAX_AGE = 35;
     // The likelihood of a grass breeding.
     private static final double BREEDING_PROBABILITY = 0.10;
     // The maximum number of births.

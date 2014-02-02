@@ -22,8 +22,6 @@ public class SimulatorView extends JFrame
 	private static final long serialVersionUID = 2113950054038469061L;
 	private static SimView sim;
 	private static ControlView controls;
-	private ImageIcon nuke;
-	private JLabel nukelabel;
     /**
      * Create a view of the given width and height.
      * @param height The simulation's height.
@@ -36,12 +34,10 @@ public class SimulatorView extends JFrame
         setTitle("Fox and Rabbit Simulation");
         controls = new ControlView();
         setLocation(100, 50);        
-			//nuke=new ImageIcon(getClass().getResource("cloud.PNG"));
-			//nukelabel = new JLabel(nuke);
+
         Container contents = getContentPane();
         contents.add(sim,BorderLayout.CENTER);
         contents.add(controls,BorderLayout.WEST);
-        	//contents.add(nukelabel);
         this.setJMenuBar(new VKMenuBar());
         pack();
         setVisible(true);
@@ -52,11 +48,5 @@ public class SimulatorView extends JFrame
     {
     	return sim;
     }
-    
-	public void showNuke(){
-		nuke=new ImageIcon(getClass().getResource("cloud.PNG"));
-		nukelabel = new JLabel(nuke);
-		add(nukelabel);
-	}
 
 }

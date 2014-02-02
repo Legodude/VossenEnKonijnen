@@ -126,15 +126,6 @@ public class Rabbit extends Animal
                     return where;
                 }
             }
-            else if(animal instanceof PoisonGrass) {
-                PoisonGrass poisongrass = (PoisonGrass) animal;
-                if(poisongrass.isAlive()) { 
-                    poisongrass.setDead();
-                    this.setDead();
-                    // Remove the dead rabbit from the field.
-                    return where;
-                }
-            }
         }
         return null;
     }
