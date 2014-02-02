@@ -6,6 +6,10 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.awt.Color;
 
+
+
+
+
 import vk.actor.*;
 import vk.model.*;
 import vk.view.*;
@@ -47,8 +51,9 @@ public class Simulator implements Runnable
     
     private static boolean running = false;
     private static boolean run = false;
+    private static boolean suspendFlag;
     public static Thread thread;
-    private List<AbstractView> views;
+    private static final Object lock = new Object();
     /**
      * Construct a simulation field with default size.
      */
@@ -95,10 +100,6 @@ public class Simulator implements Runnable
     {
         simulate(500);
     }
-    
-    public void addView(AbstractView view) {
-		views.add(view);
-	}
     
     /**
      * Run the simulation from its current state for the given number of steps.
@@ -194,28 +195,39 @@ public class Simulator implements Runnable
         }
     }
     public static void start(){
-        thread.start();
+    	if(thread.getState()==Thread.State.NEW) {
+    		thread.start();
+    	}
+    	else {
+    		suspendFlag = false;
+        	synchronized (lock) {
+        		lock.notifyAll();
+        	}
+    	}
     }
 
     public void run(){
         if(running == true)
             return;
         run = true;
-        while(run){
-            running = true;
-            simulateOneStep();
-            running = false;
-            try {
-				Thread.sleep(50);
-			} catch (InterruptedException e) {}
-        }
+        try {
+		    while(run){
+		    	running = true;
+		        simulateOneStep();
+		        running = false;
+		        try {
+		        Thread.sleep(50);
+		    	} catch (InterruptedException ex) {}
+		        synchronized (lock) {
+		        	while(suspendFlag) {
+		        		lock.wait();
+		        	}
+		        }
+		    }
+		} catch (InterruptedException e) {}
     }
-    public static void stop () {
-        run = false;
-        while(running){
-            try {
-                Thread.sleep(1);
-            } catch (InterruptedException ex) {}
-        }
+        
+    public static void stop() {
+        suspendFlag = true;
     }
- }
+}
