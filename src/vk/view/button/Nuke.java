@@ -23,7 +23,7 @@ public class Nuke extends JButton implements ActionListener {
 	    this.setActionCommand("nuke");
 	    this.addActionListener(this);
 	    this.setMnemonic(KeyEvent.VK_N);
-	    this.setIcon(new javax.swing.ImageIcon(getClass().getResource("cloud.png")));
+	    this.setIcon(new javax.swing.ImageIcon(getClass().getResource("boom.png")));
 	}
 
 	@Override
