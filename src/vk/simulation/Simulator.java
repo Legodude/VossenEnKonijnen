@@ -6,9 +6,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.awt.Color;
 
-
-
-
 import vk.actor.*;
 import vk.model.*;
 import vk.view.*;

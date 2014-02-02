@@ -16,5 +16,6 @@ public class PieGraphFrame extends JDialog {
 	public PieGraphFrame() {
 		createRootPane();
 		dialogInit();
+		
 	}
 }

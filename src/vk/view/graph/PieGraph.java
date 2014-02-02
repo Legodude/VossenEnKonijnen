@@ -2,11 +2,13 @@ package vk.view.graph;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.LayoutManager;
 
 import javax.swing.JPanel;
 
 import vk.actor.*;
 import vk.model.*;
+import vk.simulation.Simulator;
 import vk.view.*;
 
 public class PieGraph extends JPanel{
@@ -16,14 +18,15 @@ public class PieGraph extends JPanel{
 	 */
 	private static final long serialVersionUID = -4691880041923259628L;
 	private final int cirkelSize= 360;
-	
-	public PieGraph()
-	{
+
+	public PieGraph(Simulator newSimulator)
+	{		
+		super((LayoutManager) newSimulator);
 	}
-	
-	public void PaintPie(Graphics gInput) {
+	public void drawPie(Graphics gInput)
+	{
 		gInput.setColor(Color.WHITE);
-		gInput.fillRect(0, 0, this.getWidth(), this.getHeight());
+		gInput.fillRect(125, 125, this.getWidth(), this.getHeight());
 
 		float rC=FieldStats.getCount(Rabbit.class);
 		float fC=FieldStats.getCount(Fox.class);
@@ -66,7 +69,5 @@ public class PieGraph extends JPanel{
 		gInput.fillArc((this.getWidth()-this.cirkelSize)/2, (this.getHeight()-this.cirkelSize)/2, this.cirkelSize, this.cirkelSize, (fA + rA + bA + hA) , gA);
 		gInput.setColor(SimView.getColor(ZombieRabbit.class));
 		gInput.fillArc((this.getWidth()-this.cirkelSize)/2, (this.getHeight()-this.cirkelSize)/2, this.cirkelSize, this.cirkelSize, (fA + rA + bA + hA + gA) , zA);
-		
-		setVisible(true);
 	}
 }
