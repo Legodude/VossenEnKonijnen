@@ -23,13 +23,15 @@ public class Nuke extends JButton implements ActionListener {
 	    this.setActionCommand("nuke");
 	    this.addActionListener(this);
 	    this.setMnemonic(KeyEvent.VK_N);
+	    this.setIcon(new javax.swing.ImageIcon(getClass().getResource("cloud.png")));
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent event) {
 		if(event.getActionCommand().equals("nuke"))
     	{
-    		Simulator.stop();
+    		
+			Simulator.stop();
     		Simulator.reset();
     	}
 	}
