@@ -84,7 +84,7 @@ public class Rabbit extends Animal
             	newLocation = avoidZombies();
             }
             else {
-            	newLocation = getField().freeAdjacentLocation(getLocation());	
+            	findFood(location);
             }
             if(newLocation == null) { 
                 // No food found - try to move to a free location.

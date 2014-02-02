@@ -122,6 +122,9 @@ public class Simulator implements Runnable
      */
     public static void simulateOneStep()
     {
+    	if(!view.getSim().isViable(field)){
+    		suspendFlag = true;
+    	}
         step++;
 
         // Provide space for newborn actors.
