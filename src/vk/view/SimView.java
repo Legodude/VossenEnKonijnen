@@ -23,7 +23,7 @@ public class SimView extends JPanel
     public static FieldView fieldView;
     private FieldStats stats;
     // A map for storing colors for participants in the simulation
-    private Map<Class<?>, Color> colors;
+    private static Map<Class<?>, Color> colors;
 	// Colors used for empty locations.
     private static final Color EMPTY_COLOR = Color.white;
 
@@ -95,7 +95,7 @@ public class SimView extends JPanel
     /**
      * @return The color to be used for a given class of animal.
      */
-    public Color getColor(Class<?> animalClass)
+    public static Color getColor(Class<?> animalClass)
     {
         Color col = colors.get(animalClass);
         if(col == null) {

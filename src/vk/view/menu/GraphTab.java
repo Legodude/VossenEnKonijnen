@@ -6,11 +6,8 @@ import java.awt.event.KeyEvent;
 
 import javax.swing.JMenu;
 
-import vk.view.menu.item.HelpItem;
 import vk.view.menu.item.PieItem;
-import vk.view.menu.item.SettingsItem;
-import vk.view.windows.HelpFrame;
-import vk.view.windows.SettingsFrame;
+import vk.view.windows.PieGraphFrame;
 
 public class GraphTab extends JMenu implements ActionListener {
 	/**
@@ -30,15 +27,10 @@ public class GraphTab extends JMenu implements ActionListener {
 	
 	public void actionPerformed(ActionEvent event) {
 		System.out.println(event.getActionCommand());
-		if(event.getActionCommand().equals("settingsItem"))
+		if(event.getActionCommand().equals("pieItem"))
 		{
-			SettingsFrame settingsFrame = new SettingsFrame();
-			settingsFrame.setVisible(true);
-		}
-		if(event.getActionCommand().equals("helpItem"))
-		{
-			HelpFrame helpFrame = new HelpFrame();
-			helpFrame.setVisible(true);
+			PieGraphFrame pieFrame = new PieGraphFrame();
+			pieFrame.setVisible(true);
 		}
 		
 	}

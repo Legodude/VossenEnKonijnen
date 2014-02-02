@@ -12,12 +12,16 @@ import vk.view.*;
 public class PieGraph extends JPanel{
 
 	/**
-	 * KAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAS
+	 * KAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAS (random)
 	 */
 	private static final long serialVersionUID = -4691880041923259628L;
 	private final int cirkelSize= 360;
 	
-	public PieGraph(Graphics gInput) {
+	public PieGraph()
+	{
+	}
+	
+	public void PaintPie(Graphics gInput) {
 		gInput.setColor(Color.WHITE);
 		gInput.fillRect(0, 0, this.getWidth(), this.getHeight());
 

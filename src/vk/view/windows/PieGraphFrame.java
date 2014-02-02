@@ -1,0 +1,20 @@
+package vk.view.windows;
+
+import java.awt.Graphics;
+
+import javax.swing.JDialog;
+
+import vk.view.graph.PieGraph;
+
+public class PieGraphFrame extends JDialog {
+
+	/**
+	 * ranomd
+	 */
+	private static final long serialVersionUID = -2474402795657944620L;
+
+	public PieGraphFrame() {
+		createRootPane();
+		dialogInit();
+	}
+}
