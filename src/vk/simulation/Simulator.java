@@ -37,8 +37,10 @@ public class Simulator implements Runnable
     private static final double HUNTER_CREATION_PROBABILITY = 0.015;    
     // The probability that an alligator will be created in any given grid position.
     private static final double ALLIGATOR_CREATION_PROBABILITY = 0.015;
- // The probability that an Grass will be created in any given grid position.
-    private static final double GRASS_CREATION_PROBABILITY = 0.030;
+    // The probability that an Grass will be created in any given grid position.
+    private static final double GRASS_CREATION_PROBABILITY = 0.025;
+    // The probability that an Grass will be created in any given grid position.
+    private static final double POISONGRASS_CREATION_PROBABILITY = 0.005;
     // List of animals in the field.
     private static List<Actor> actors;
     // The current state of the field.
@@ -86,6 +88,7 @@ public class Simulator implements Runnable
         view.getSim().setColor(Alligator.class, new Color(52,151,52));
         view.getSim().setColor(ZombieRabbit.class, new Color(170,255,170));
         view.getSim().setColor(Grass.class, Color.pink);
+        view.getSim().setColor(PoisonGrass.class, Color.black);
         // Setup a valid starting point.
         reset();
     }
@@ -187,6 +190,12 @@ public class Simulator implements Runnable
                     Location location = new Location(row, col);
                     Grass grass = new Grass(field, location);
                     actors.add(grass);
+                }
+                else if (rand.nextDouble() <= POISONGRASS_CREATION_PROBABILITY)
+                {
+                    Location location = new Location(row, col);
+                    PoisonGrass poisongrass = new PoisonGrass(field, location);
+                    actors.add(poisongrass);
                 }
                 // else leave the location empty.
             }

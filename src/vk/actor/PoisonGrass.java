@@ -7,7 +7,7 @@ import vk.model.Field;
 import vk.model.Location;
 import vk.simulation.Randomizer;
 
-public class Grass extends Animal {
+public class PoisonGrass extends Animal {
 	
     // The age at which a grass can start to breed.
     private static final int BREEDING_AGE = 0;
@@ -22,18 +22,18 @@ public class Grass extends Animal {
 	// Set the age of the Grass
     private int age;
     
-	public Grass(Field field, Location location)
+	public PoisonGrass(Field field, Location location)
 	{
 		super(field, location);
 		age = 0;
 	}
 	
-    public void act(List<Actor> newGrass)
+    public void act(List<Actor> newPoisonGrass)
     {
         incrementAge();
         if(isAlive()) 
         {
-            giveBirth(newGrass);            
+            giveBirth(newPoisonGrass);            
         }
         else 
         {
@@ -49,7 +49,7 @@ public class Grass extends Animal {
         }
     }
     
-    private void giveBirth(List<Actor> newGrass)
+    private void giveBirth(List<Actor> newPoisonGrass)
     {
         // New foxes are born into adjacent locations.
         // Get a list of adjacent free locations.
@@ -59,8 +59,8 @@ public class Grass extends Animal {
 	    for(int b = 0; b < births && free.size() > 0; b++) 
 	    {
 		    Location loc = free.remove(0);
-		    Grass young = new Grass(field, loc);
-		    newGrass.add(young);
+		    PoisonGrass young = new PoisonGrass(field, loc);
+		    newPoisonGrass.add(young);
 	    }
      }
     

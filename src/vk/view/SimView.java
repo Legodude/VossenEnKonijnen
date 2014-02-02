@@ -5,8 +5,7 @@ import java.awt.Color;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import javax.swing.JLabel;
-import javax.swing.JPanel;
+import javax.swing.*;
 
 import vk.model.Field;
 import vk.model.FieldStats;
@@ -29,14 +28,21 @@ public class SimView extends JPanel
 
     // Color used for objects that have no defined color.
     private static final Color UNKNOWN_COLOR = Color.gray;
+	    //nuke
+	    private ImageIcon nuke;
+	    private JLabel nukelabel;
+    
 	public SimView(int height, int width)
 	{
 		colors = new LinkedHashMap<Class<?>, Color>();
 		stepLabel = new JLabel(STEP_PREFIX, JLabel.CENTER);
 	    population = new JLabel(POPULATION_PREFIX, JLabel.CENTER);
 	    stats = new FieldStats();
+	    	nuke = new ImageIcon(getClass().getResource("cloud.png"));
+	    	nukelabel = new JLabel(nuke, JLabel.CENTER);
 	    fieldView = new FieldView(height, width);
         this.setLayout(new BorderLayout(0, 0));
+        	this.add(nukelabel, JLabel.CENTER);
         this.add(stepLabel, BorderLayout.NORTH);
         this.add(fieldView, BorderLayout.CENTER);
         this.add(population, BorderLayout.SOUTH);
