@@ -37,7 +37,7 @@ public class Simulator implements Runnable
     private static final double HUNTER_CREATION_PROBABILITY = 0.015;    
     // The probability that an alligator will be created in any given grid position.
     private static final double ALLIGATOR_CREATION_PROBABILITY = 0.015;
- // The probability that an Grass will be created in any given grid position.
+    // The probability that an Grass will be created in any given grid position.
     private static final double GRASS_CREATION_PROBABILITY = 0.030;
     // List of animals in the field.
     private static List<Actor> actors;
@@ -54,7 +54,6 @@ public class Simulator implements Runnable
     /**
      * Construct a simulation field with default size.
      */
-    
     
     public Simulator()
     {

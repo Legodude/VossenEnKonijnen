@@ -30,7 +30,6 @@ public class Nuke extends JButton implements ActionListener {
 	public void actionPerformed(ActionEvent event) {
 		if(event.getActionCommand().equals("nuke"))
     	{
-    		
 			Simulator.stop();
     		Simulator.reset();
     	}

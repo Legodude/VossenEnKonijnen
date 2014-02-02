@@ -18,7 +18,7 @@ public class Stop extends JButton implements ActionListener {
 	public Stop()
 	{
 		this.setText("<HTML><U>S</U>top</HTML>");
-        this.setActionCommand("run");
+        this.setActionCommand("stop");
         this.setMnemonic(KeyEvent.VK_S);
         this.addActionListener(this);
 	}

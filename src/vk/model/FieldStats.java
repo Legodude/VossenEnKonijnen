@@ -127,4 +127,10 @@ public class FieldStats
         }
         countsValid = true;
     }
+    
+	public float getCount(Class<?> actor)
+	{
+		Counter count = counters.get(actor);
+        return count.getCount();
+	}
 }
