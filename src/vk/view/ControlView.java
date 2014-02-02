@@ -5,7 +5,7 @@ import javax.swing.*;
 import vk.simulation.Simulator;
 import vk.view.button.*;
 
-public class ControlView extends AbstractView{
+public class ControlView extends JPanel{
 	
 	/**
 	 * random nummertje zodat hij maar uniek is
