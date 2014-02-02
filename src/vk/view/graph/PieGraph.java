@@ -20,12 +20,12 @@ public class PieGraph extends JPanel{
 		gInput.setColor(Color.WHITE);
 		gInput.fillRect(0, 0, this.getWidth(), this.getHeight());
 
-		float rC=this.model.getCount(Rabbit.class);
-		float fC=this.model.getCount(Fox.class);
-		float bC=this.model.getCount(Alligator.class);
-		float hC=this.model.getCount(Hunter.class);
-		float gC=this.model.getCount(Grass.class);
-		float zC=this.model.getCount(ZombieRabbit.class);
+		float rC=FieldStats.getCount(Rabbit.class);
+		float fC=FieldStats.getCount(Fox.class);
+		float bC=FieldStats.getCount(Alligator.class);
+		float hC=FieldStats.getCount(Hunter.class);
+		float gC=FieldStats.getCount(Grass.class);
+		float zC=FieldStats.getCount(ZombieRabbit.class);
 
 		float total = rC + fC + bC + hC + gC;
 

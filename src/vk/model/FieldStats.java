@@ -14,7 +14,7 @@ import vk.simulation.Counter;
 public class FieldStats
 {
     // Counters for each type of entity (fox, rabbit, etc.) in the simulation.
-    private HashMap<Class<?>, Counter> counters;
+    private static HashMap<Class<?>, Counter> counters;
     // Whether the counters are currently up to date.
     private boolean countsValid;
 
@@ -128,7 +128,7 @@ public class FieldStats
         countsValid = true;
     }
     
-	public float getCount(Class<?> actor)
+	public static float getCount(Class<?> actor)
 	{
 		Counter count = counters.get(actor);
         return count.getCount();
