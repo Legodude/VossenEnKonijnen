@@ -48,6 +48,7 @@ public class Simulator implements Runnable
     private static boolean running = false;
     private static boolean run = false;
     public static Thread thread;
+    private List<AbstractView> views;
     /**
      * Construct a simulation field with default size.
      */
@@ -94,6 +95,10 @@ public class Simulator implements Runnable
     {
         simulate(500);
     }
+    
+    public void addView(AbstractView view) {
+		views.add(view);
+	}
     
     /**
      * Run the simulation from its current state for the given number of steps.

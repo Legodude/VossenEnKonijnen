@@ -1,7 +1,5 @@
 package vk.view.windows;
 
-import java.awt.Graphics;
-
 import javax.swing.JDialog;
 
 import vk.view.graph.PieGraph;

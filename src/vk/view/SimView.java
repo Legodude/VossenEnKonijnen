@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 import vk.model.Field;
 import vk.model.FieldStats;
 
-public class SimView extends JPanel 
+public class SimView extends AbstractView
 {
     /**
 	 * stom nummertje om hem maar uniek te laten zijn
