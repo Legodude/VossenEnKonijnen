@@ -28,6 +28,12 @@ public class FieldView extends JPanel
             size = new Dimension(0, 0);
         }
 
+        public void changeView(int height, int width) {
+        	gridHeight = height;
+        	gridWidth = width;
+        	size = new Dimension(0, 0);
+        }
+        
         /**
          * Tell the GUI manager how big we would like to be.
          */

@@ -130,8 +130,9 @@ public class Simulator extends AbstractModel implements Runnable
         step = 0;
         actors.clear();
         populate();
-        if(CUSTOM_DEPTH>0 && CUSTOM_WIDTH>0) {
+        if(CUSTOM_DEPTH>0 && CUSTOM_WIDTH>0 && CUSTOM_DEPTH <=100 && CUSTOM_WIDTH <=100) {
         	field.setField(CUSTOM_DEPTH, CUSTOM_WIDTH);
+        	view.getSim().getView().changeView(CUSTOM_DEPTH,CUSTOM_WIDTH);
         }
         // Show the starting state in the view.
         view.getSim().showStatus(step, field);

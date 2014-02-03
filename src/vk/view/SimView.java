@@ -41,6 +41,10 @@ public class SimView extends JPanel
         this.add(fieldView, BorderLayout.CENTER);
         this.add(population, BorderLayout.SOUTH);
 	}
+	
+	public FieldView getView() {
+		return fieldView;
+	}
 	/**
      * Show the current status of the field.
      * @param step Which iteration step it is.

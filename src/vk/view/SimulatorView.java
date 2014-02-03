@@ -43,7 +43,7 @@ public class SimulatorView extends JFrame
     }
     
     /**
-     * Return this
+     * Return the simview
      * @return
      */
     public SimView getSim()
