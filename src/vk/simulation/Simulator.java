@@ -235,4 +235,8 @@ public class Simulator extends AbstractModel implements Runnable
     	CUSTOM_WIDTH = width;
     	CUSTOM_DEPTH = depth;
     }
+    
+    public Simulator getThis() {
+    	return this;
+    }
 }

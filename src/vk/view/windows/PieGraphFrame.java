@@ -2,6 +2,7 @@ package vk.view.windows;
 
 import javax.swing.JDialog;
 
+import vk.main.Main;
 import vk.simulation.Simulator;
 import vk.view.graph.PieGraph;
 
@@ -15,6 +16,6 @@ public class PieGraphFrame extends JDialog {
 	public PieGraphFrame() {
 		createRootPane();
 		dialogInit();
-		this.add(PieGraph(simulator));
+		this.add(PieGraph(Main.returnSim()));
 	}
 }
