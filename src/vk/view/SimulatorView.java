@@ -16,8 +16,7 @@ import javax.swing.*;
 public class SimulatorView extends JFrame
 {
     /**
-	 * Randomly Generated serialVersionUID zodat eclipse stopt met janken
-	 * heeft wat van doen met compatibilty van instances
+	 * Serial
 	 */
 	private static final long serialVersionUID = 2113950054038469061L;
 	private static SimView sim;
@@ -43,6 +42,10 @@ public class SimulatorView extends JFrame
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
     
+    /**
+     * Return this
+     * @return
+     */
     public SimView getSim()
     {
     	return sim;

@@ -11,10 +11,13 @@ import vk.simulation.Simulator;
 public class StopStart extends JButton implements ActionListener {
 
 	/**
-	 * serialversion
+	 * Serial
 	 */
 	private static final long serialVersionUID = -7366873901042910906L;
 
+	/**
+	 * A constructor for a stop/start button that starts a simulation
+	 */
 	public StopStart()
 	{
 		this.setText("<HTML><U>S</U>tart</HTML>");
@@ -22,7 +25,10 @@ public class StopStart extends JButton implements ActionListener {
         this.setMnemonic(KeyEvent.VK_S);
         this.addActionListener(this);
 	}
-
+	
+	/**
+	 * This method checks for a button press
+	 */
 	public void actionPerformed(ActionEvent event) {
 		if(event.getActionCommand().equals("stop")) {
     		Simulator.stop();

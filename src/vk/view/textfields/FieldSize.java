@@ -10,10 +10,13 @@ import vk.simulation.Simulator;
 public class FieldSize extends JTextField implements ActionListener {
 
 	/**
-	 * 
+	 * Serial
 	 */
 	private static final long serialVersionUID = 691328799454515243L;
 
+	/**
+	 * Constructor for a text field that can change the field's dimensions
+	 */
 	public FieldSize()
 	{
 		this.setText("Width Depth");
@@ -21,7 +24,9 @@ public class FieldSize extends JTextField implements ActionListener {
 		this.setActionCommand("newsize");
 	}
 	
-	
+	/**
+	 * This method checks for a button press
+	 */
 	public void actionPerformed(ActionEvent event) {
 		if(event.getActionCommand().equals("newsize")&& !this.getText().equals("Width Depth")) {
 			String text = this.getText();

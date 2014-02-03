@@ -51,11 +51,13 @@ public class Simulator extends AbstractModel implements Runnable
     // A graphical view of the simulation.
     private static SimulatorView view;
     
+    //A set of thread-related variables
     private static boolean running = false;
     private static boolean run = false;
     private static boolean suspendFlag;
     public static Thread thread;
     private static final Object lock = new Object();
+    
     /**
      * Construct a simulation field with default size.
      */
@@ -93,34 +95,10 @@ public class Simulator extends AbstractModel implements Runnable
         // Setup a valid starting point.
         reset();
     }
-    
-    /**
-     * Run the simulation from its current state for a reasonably long period,
-     * e.g. 500 steps.
-     */
-    public void runLongSimulation()
-    {
-        simulate(500);
-    }
-    
-    /**
-     * Run the simulation from its current state for the given number of steps.
-     * Stop before the given number of steps if it ceases to be viable.
-     * @param numSteps The number of steps to run for.
-     */
-    public static void simulate(int numSteps)
-    {
-    	start();
-        for(int step = 1; step <= numSteps && view.getSim().isViable(field); step++) {
-            simulateOneStep();
-        }
-        stop();
-    }
-    
+
     /**
      * Run the simulation from its current state for a single step.
-     * Iterate over the whole field updating the state of each
-     * fox and rabbit.
+     * The simulation stops if there is only one kind of animal left.
      */
     public static void simulateOneStep()
     {
@@ -160,7 +138,7 @@ public class Simulator extends AbstractModel implements Runnable
     }
     
     /**
-     * Randomly populate the field with foxes and rabbits.
+     * Randomly populate the field with animals.
      */
     public static void populate()
     {
@@ -201,6 +179,10 @@ public class Simulator extends AbstractModel implements Runnable
             }
         }
     }
+    
+    /**
+     * The method that starts a new thread or restarts an already started one
+     */
     public static void start(){
     	if(thread.getState()==Thread.State.NEW) {
     		thread.start();
@@ -213,6 +195,9 @@ public class Simulator extends AbstractModel implements Runnable
     	}
     }
 
+    /**
+     * This method contains what a thread does in its lifetime
+     */
     public void run(){
         if(running == true)
             return;
@@ -234,10 +219,18 @@ public class Simulator extends AbstractModel implements Runnable
 		} catch (InterruptedException e) {}
     }
         
+    /**
+     * This method pauses the thread.
+     */
     public static void stop() {
         suspendFlag = true;
     }
     
+    /**
+     * Changes the field's dimensions
+     * @param width
+     * @param depth
+     */
     public static void setField(int width, int depth) {
     	CUSTOM_WIDTH = width;
     	CUSTOM_DEPTH = depth;

@@ -14,7 +14,7 @@ import vk.model.FieldStats;
 public class SimView extends JPanel
 {
     /**
-	 * stom nummertje om hem maar uniek te laten zijn
+	 * Serial
 	 */
 	private static final long serialVersionUID = 1959304529004351545L;
 	private JLabel stepLabel, population;

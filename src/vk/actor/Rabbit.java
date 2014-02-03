@@ -40,6 +40,7 @@ public class Rabbit extends Animal
     public char sex;
  // The rabbits food level, which is increased by eating grass
     public int foodLevel;
+    
     /**
      * Create a new rabbit. A rabbit may be created with age
      * zero (a new born) or with a random age.
@@ -101,6 +102,9 @@ public class Rabbit extends Animal
         }
     }
     
+    /**
+     * Increment the hunger of the rabbit and let it die if it's too hungry.
+     */
     private void incrementHunger()
     {
         foodLevel--;
@@ -109,6 +113,11 @@ public class Rabbit extends Animal
         }
     }
     
+    /**
+     * Let the rabbit look for grass
+     * @param location
+     * @return the location of the grass
+     */
     private Location findFood(Location location)
     {
         Field field = getField();
@@ -138,6 +147,7 @@ public class Rabbit extends Animal
     {
     	return sex;
     }
+    
     /**
      * Increase the age.
      * This could result in the rabbit's death.
@@ -247,6 +257,7 @@ public class Rabbit extends Animal
     {
         return age >= BREEDING_AGE;
     }
+    
     /**
      * get the age of the rabbit
      * @return age

@@ -11,6 +11,9 @@ public class VKMenuBar extends JMenuBar {
 
 	private static final long serialVersionUID = 851431801870525729L;
 
+	/**
+	 * Constructor for the menu bar up top
+	 */
 	public VKMenuBar()
 	{		
 		FileTab fileTab = new FileTab();

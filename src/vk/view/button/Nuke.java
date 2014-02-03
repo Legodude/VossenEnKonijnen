@@ -13,10 +13,14 @@ import vk.simulation.Simulator;
 
 public class Nuke extends JButton implements ActionListener {
 	/**
-	 * 
+	 * Serial
 	 */
 	private static final long serialVersionUID = 9143799018708022964L;
 
+	
+	/**
+	 * Constructor for the nuke button, which resets the simulation
+	 */
 	public Nuke()
 	{
 	    this.setText("<HTML><U>N</U>uke & Populate</HTML>");
@@ -26,7 +30,9 @@ public class Nuke extends JButton implements ActionListener {
 	    this.setIcon(new javax.swing.ImageIcon(getClass().getResource("boom.png")));
 	}
 
-	@Override
+	/**
+	 * This method checks for a button press
+	 */
 	public void actionPerformed(ActionEvent event) {
 		if(event.getActionCommand().equals("nuke"))
     	{

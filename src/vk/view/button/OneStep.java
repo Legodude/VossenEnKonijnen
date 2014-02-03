@@ -11,10 +11,13 @@ import java.awt.event.*;
 
 public class OneStep extends JButton implements ActionListener {
 	/**
-	 * hurrdurr
+	 * Serial
 	 */
 	private static final long serialVersionUID = -7533985062848505640L;
 
+	/**
+	 * Constructor for a button that simulates one step
+	 */
 	public OneStep()
 	{
 		this.setText("<HTML><U>O</U>ne Step</HTML>");
@@ -23,7 +26,9 @@ public class OneStep extends JButton implements ActionListener {
         this.setMnemonic(KeyEvent.VK_O);
 	}
 
-	@Override
+	/**
+	 * This method checks for a button press
+	 */
 	public void actionPerformed(ActionEvent event) {
 		if(event.getActionCommand().equals("oneStep"))
     	{

@@ -6,7 +6,7 @@ import javax.swing.*;
 public class FieldView extends JPanel
     {
         /**
-		 * zelfde verhaal als de eerste serialVersionUID
+		 * Serial
 		 */
 		private static final long serialVersionUID = -5639320443455245917L;
 

@@ -128,6 +128,11 @@ public class FieldStats
         countsValid = true;
     }
     
+    /**
+     * Get the count of an actor
+     * @param actor
+     * @return the count
+     */
 	public static float getCount(Class<?> actor)
 	{
 		Counter count = counters.get(actor);

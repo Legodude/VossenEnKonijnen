@@ -4,7 +4,7 @@ import javax.swing.JMenuItem;
 
 public class PieItem extends JMenuItem {
 	/**
-	 * another one bites the dust
+	 * Serial
 	 */
 	private static final long serialVersionUID = -6996064557566770578L;
 

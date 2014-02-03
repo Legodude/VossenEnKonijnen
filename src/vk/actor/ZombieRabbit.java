@@ -1,7 +1,6 @@
 package vk.actor;
 
 import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
@@ -11,24 +10,41 @@ import vk.simulation.Randomizer;
 
 public class ZombieRabbit extends Animal{
 
+	//All zombierabbits share these characteristics
+	
+	//The zombierabbit's age
 	private int age;
+	//Its age
 	private char sex;
+	//Its maximum age
 	private static final int MAX_AGE = 4;
-	private static final double INFECTION_CHANCE = 0.4;
+	// The chance that it might infect more rabbits
+	private static final double INFECTION_CHANCE = 0.3;
+	// The chance that it can move
 	private static final double MOVEMENT_CHANCE = 0.2;
 	
+	/**
+	 * Constructor for ZombieRabbit
+	 * @param alive
+	 * @param field
+	 * @param location
+	 */
 	public ZombieRabbit(boolean alive, Field field, Location location){
 		super(field, location);
 	}
 	
+	/**
+	 * Constructor with the age included
+	 * @param age
+	 */
 	public ZombieRabbit(boolean alive, Field field, Location location, int age) {
 		super(field, location);
 	}
 	
 	/**
-     * This is what the rabbit does most of the time - it runs 
-     * around. Sometimes it will breed or die of old age.
-     * @param newRabbits A list to add newly born rabbits to.
+     * This is what the zombierabbit does most of the time - it runs 
+     * around. Sometimes it will infect new rabbits
+     * @param newRabbits A list to add the new zombierabbits to
      */
     public void act(List<Actor> newZombieRabbits)
     {
@@ -69,6 +85,7 @@ public class ZombieRabbit extends Animal{
     {
     	return sex;
     }
+    
     /**
      * Increase the age.
      * This could result in the rabbit's death.
@@ -82,8 +99,7 @@ public class ZombieRabbit extends Animal{
     }
     
     /**
-     * Tell the hunter to look for rabbits and foxes adjacent to its current location.
-     * Only the first live rabbit is eaten or fox.
+     * This method looks for rabbits to infect and spawns new zombierabbits at their position
      * @param location Where in the field it is located.
      * @return Where food was found, or null if it wasn't.
      */

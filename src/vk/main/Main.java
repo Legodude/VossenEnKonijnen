@@ -4,7 +4,7 @@ import vk.simulation.*;
 
 public class Main {
 	/**
-	 * main method to start the simulator
+	 * Main method that starts the simulator
 	 * @param args
 	 */
 	public static void main(String[] args) {

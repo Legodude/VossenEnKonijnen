@@ -7,10 +7,13 @@ import vk.view.button.*;
 public class ControlView extends JPanel{
 	
 	/**
-	 * random nummertje zodat hij maar uniek is
+	 * Serial
 	 */
 	private static final long serialVersionUID = 9213132259620958842L;
 
+	/**
+	 * A constructor that adds the required buttons
+	 */
     public ControlView()
     {
         this.add(new OneStep());

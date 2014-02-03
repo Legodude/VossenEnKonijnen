@@ -12,10 +12,13 @@ import vk.view.windows.*;
 public class FileTab extends JMenu implements ActionListener {
 
 	/**
-	 * random nummertje
+	 * Serial
 	 */
 	private static final long serialVersionUID = 7865087811043667737L;
 
+	/**
+	 * Constructor for the drop down menu
+	 */
 	public FileTab()
 	{
 		super("<HTML><U>F</U>ile</HTML>");
@@ -32,7 +35,10 @@ public class FileTab extends JMenu implements ActionListener {
         helpItem.setMnemonic(KeyEvent.VK_H);
         
 	}
-	
+
+	/**
+	 * This method checks for a button press
+	 */
 	public void actionPerformed(ActionEvent event) {
 		System.out.println(event.getActionCommand());
 		if(event.getActionCommand().equals("settingsItem"))

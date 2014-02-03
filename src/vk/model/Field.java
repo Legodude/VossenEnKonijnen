@@ -35,6 +35,11 @@ public class Field
         field = new Object[depth][width];
     }
     
+    /**
+     * A setter to change the field's dimensions
+     * @param depth
+     * @param width
+     */
     public void setField(int depth, int width) {
     	this.depth = depth;
     	this.width = width;

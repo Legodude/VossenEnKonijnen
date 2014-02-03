@@ -11,10 +11,13 @@ import vk.view.windows.PieGraphFrame;
 
 public class GraphTab extends JMenu implements ActionListener {
 	/**
-	 * random nummertje
+	 * Serial
 	 */
 	private static final long serialVersionUID = 7865087811043667737L;
 
+	/**
+	 * Drop down graph
+	 */
 	public GraphTab()
 	{
 		super("<HTML><U>G</U>raph</HTML>");
@@ -25,6 +28,9 @@ public class GraphTab extends JMenu implements ActionListener {
 		pieItem.setMnemonic(KeyEvent.VK_P);
     }
 	
+	/**
+	 * This method checks for a button press
+	 */
 	public void actionPerformed(ActionEvent event) {
 		System.out.println(event.getActionCommand());
 		if(event.getActionCommand().equals("pieItem"))
