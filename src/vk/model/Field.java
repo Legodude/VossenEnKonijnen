@@ -35,6 +35,11 @@ public class Field
         field = new Object[depth][width];
     }
     
+    public void setField(int depth, int width) {
+    	this.depth = depth;
+    	this.width = width;
+    }
+    
     /**
      * Empty the field.
      */

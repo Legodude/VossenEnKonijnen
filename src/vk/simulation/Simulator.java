@@ -28,8 +28,10 @@ public class Simulator implements Runnable
     // Constants representing configuration information for the simulation.
     // The default width for the grid.
     private static final int DEFAULT_WIDTH = 100;
+    private static int CUSTOM_WIDTH = 0;
     // The default depth of the grid.
     private static final int DEFAULT_DEPTH = 100;
+    private static int CUSTOM_DEPTH = 0;
     // The probability that a fox will be created in any given grid position.
     private static final double FOX_CREATION_PROBABILITY = 0.02;
     // The probability that a rabbit will be created in any given grid position.
@@ -60,7 +62,7 @@ public class Simulator implements Runnable
     
     public Simulator()
     {
-        this(DEFAULT_DEPTH, DEFAULT_WIDTH);
+    	this(DEFAULT_DEPTH, DEFAULT_WIDTH);
     }
     
     /**
@@ -86,8 +88,8 @@ public class Simulator implements Runnable
         view.getSim().setColor(Fox.class, Color.blue);
         view.getSim().setColor(Hunter.class, Color.red);
         view.getSim().setColor(Alligator.class, new Color(52,151,52));
-        view.getSim().setColor(ZombieRabbit.class, new Color(170,255,170));
-        view.getSim().setColor(Grass.class, Color.pink);
+        view.getSim().setColor(ZombieRabbit.class, Color.pink );
+        view.getSim().setColor(Grass.class, new Color(170,255,170));
         // Setup a valid starting point.
         reset();
     }
@@ -150,7 +152,9 @@ public class Simulator implements Runnable
         step = 0;
         actors.clear();
         populate();
-        
+        if(CUSTOM_DEPTH>0 && CUSTOM_WIDTH>0) {
+        	field.setField(CUSTOM_DEPTH, CUSTOM_WIDTH);
+        }
         // Show the starting state in the view.
         view.getSim().showStatus(step, field);
     }
@@ -232,5 +236,10 @@ public class Simulator implements Runnable
         
     public static void stop() {
         suspendFlag = true;
+    }
+    
+    public static void setField(int width, int depth) {
+    	CUSTOM_WIDTH = width;
+    	CUSTOM_DEPTH = depth;
     }
 }
