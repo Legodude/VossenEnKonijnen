@@ -6,6 +6,11 @@ import javax.swing.JLabel;
 
 import vk.view.textfields.FieldSize;
 
+/**
+ * The settings frame
+ * @author Mark
+ *
+ */
 public class SettingsFrame extends JDialog {
 
 	/**

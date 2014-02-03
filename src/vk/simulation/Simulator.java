@@ -16,7 +16,6 @@ import vk.view.*;
 
 /**
  * A simple predator-prey simulator, based on a rectangular field
- * containing rabbits, foxes and hunters.
  * 
  * @author David J. Barnes and Michael Kolling
  * @version 2008.03.30

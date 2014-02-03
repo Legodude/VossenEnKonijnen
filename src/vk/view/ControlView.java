@@ -4,6 +4,11 @@ import javax.swing.*;
 
 import vk.view.button.*;
 
+/**
+ * The button layout 
+ * @author Mark
+ *
+ */
 public class ControlView extends JPanel{
 	
 	/**

@@ -9,6 +9,11 @@ import vk.simulation.Simulator;
 
 import java.awt.event.*;
 
+/**
+ * The button the simulate one tick
+ * @author Mark
+ *
+ */
 public class OneStep extends JButton implements ActionListener {
 	/**
 	 * Serial

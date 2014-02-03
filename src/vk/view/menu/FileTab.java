@@ -9,6 +9,11 @@ import javax.swing.JMenu;
 import vk.view.menu.item.*;
 import vk.view.windows.*;
 
+/**
+ * Drop down for fsettings etc
+ * @author Mark
+ *
+ */
 public class FileTab extends JMenu implements ActionListener {
 
 	/**

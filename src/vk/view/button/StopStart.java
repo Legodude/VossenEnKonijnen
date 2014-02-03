@@ -8,6 +8,11 @@ import javax.swing.JButton;
 
 import vk.simulation.Simulator;
 
+/**
+ * The button to start and stop the simulation
+ * @author Mark
+ *
+ */
 public class StopStart extends JButton implements ActionListener {
 
 	/**

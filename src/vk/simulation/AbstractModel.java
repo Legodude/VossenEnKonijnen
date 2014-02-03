@@ -4,6 +4,11 @@ import java.util.*;
 
 import vk.view.AbstractView;
 
+/**
+ * Abstract model needed for the charts
+ * @author Mark
+ *
+ */
 public abstract class AbstractModel {
 
 	protected List<AbstractView> views;

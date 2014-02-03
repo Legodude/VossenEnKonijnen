@@ -2,6 +2,11 @@ package vk.view.menu.item;
 
 import javax.swing.JMenuItem;
 
+/**
+ * List of settings
+ * @author Mark
+ *
+ */
 public class SettingsItem extends JMenuItem {
 	/**
 	 * Serial

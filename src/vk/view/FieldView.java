@@ -3,6 +3,11 @@ import java.awt.*;
 
 import javax.swing.*;
 
+/**
+ * The actual field view
+ * @author Mark
+ *
+ */
 public class FieldView extends JPanel
     {
         /**

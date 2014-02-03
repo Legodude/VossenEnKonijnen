@@ -11,6 +11,11 @@ import javax.swing.JPanel;
 import vk.model.Field;
 import vk.model.FieldStats;
 
+/**
+ * What's inside the simview
+ * @author Mark
+ *
+ */
 public class SimView extends JPanel
 {
     /**

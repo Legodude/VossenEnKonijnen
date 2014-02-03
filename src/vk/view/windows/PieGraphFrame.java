@@ -6,6 +6,11 @@ import vk.main.Main;
 import vk.simulation.Simulator;
 import vk.view.graph.PieGraph;
 
+/**
+ * The Pie Graph frame
+ * @author Mark
+ *
+ */
 public class PieGraphFrame extends JDialog {
 
 	/**

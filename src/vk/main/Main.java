@@ -2,6 +2,11 @@ package vk.main;
 
 import vk.simulation.*;
 
+/**
+ * This class starts the whole simulation
+ * @author Mark
+ *
+ */
 public class Main {
 	
 	static Simulator sim;

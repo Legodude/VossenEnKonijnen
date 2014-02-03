@@ -3,3 +3,9 @@ vk.main
 vk.model
 vk.simulation
 vk.view
+vk.view.button
+vk.view.graph
+vk.view.menu
+vk.view.menu.item
+vk.view.textfields
+vk.view.windows

@@ -2,6 +2,11 @@ package vk.view.windows;
 
 import javax.swing.*;
 
+/**
+ * Frame for the help screen
+ * @author Mark
+ *
+ */
 public class HelpFrame extends JDialog {
 
 	/**

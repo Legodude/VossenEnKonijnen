@@ -7,6 +7,11 @@ import vk.model.Field;
 import vk.model.Location;
 import vk.simulation.Randomizer;
 
+/**
+ * Not actually an animal, but still required for the simulation
+ * @author Mark
+ *
+ */
 public class Grass extends Animal {
 	
     // The age at which a grass can start to breed.

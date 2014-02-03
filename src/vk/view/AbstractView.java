@@ -8,6 +8,11 @@ import javax.swing.*;
 
 import vk.simulation.Simulator;
 
+/**
+ * Abstract view
+ * @author Mark
+ *
+ */
 public abstract class AbstractView extends JPanel {
 
 	protected Simulator simulator;

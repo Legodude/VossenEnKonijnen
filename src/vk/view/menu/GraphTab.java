@@ -9,6 +9,11 @@ import javax.swing.JMenu;
 import vk.view.menu.item.PieItem;
 import vk.view.windows.PieGraphFrame;
 
+/**
+ * The graph tab
+ * @author Mark
+ *
+ */
 public class GraphTab extends JMenu implements ActionListener {
 	/**
 	 * Serial

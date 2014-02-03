@@ -7,6 +7,11 @@ import javax.swing.JTextField;
 
 import vk.simulation.Simulator;
 
+/**
+ * Textfield to change the field's size
+ * @author Mark
+ *
+ */
 public class FieldSize extends JTextField implements ActionListener {
 
 	/**

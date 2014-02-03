@@ -6,7 +6,11 @@ import javax.swing.*;
 
 import vk.view.menu.*;
 
-
+/**
+ * The menu bar up top
+ * @author Mark
+ *
+ */
 public class VKMenuBar extends JMenuBar {
 
 	private static final long serialVersionUID = 851431801870525729L;

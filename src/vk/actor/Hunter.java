@@ -8,6 +8,11 @@ import vk.model.Field;
 import vk.model.Location;
 import vk.simulation.Randomizer;
 
+/**
+ * Hunter class, hunts rabbits and foxes
+ * @author Mark
+ *
+ */
 public class Hunter extends Animal {
 
     // Characteristics shared by all foxes (static fields).

@@ -11,6 +11,11 @@ import javax.swing.JButton;
 
 import vk.simulation.Simulator;
 
+/**
+ * Button to nuke the field
+ * @author Mark
+ *
+ */
 public class Nuke extends JButton implements ActionListener {
 	/**
 	 * Serial

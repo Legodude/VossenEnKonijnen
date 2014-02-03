@@ -2,6 +2,11 @@ package vk.view.menu.item;
 
 import javax.swing.JMenuItem;
 
+/**
+ * The actual pie
+ * @author Mark
+ *
+ */
 public class PieItem extends JMenuItem {
 	/**
 	 * Serial

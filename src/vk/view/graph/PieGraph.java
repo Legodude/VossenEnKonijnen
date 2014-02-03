@@ -11,7 +11,7 @@ import vk.view.*;
 public class PieGraph extends AbstractView{
 
 	/**
-	 * KAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAS (random)
+	 * Serial
 	 */
 	private static final long serialVersionUID = -4691880041923259628L;
 	private final int cirkelSize= 360;

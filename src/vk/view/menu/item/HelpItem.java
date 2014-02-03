@@ -2,6 +2,11 @@ package vk.view.menu.item;
 
 import javax.swing.JMenuItem;
 
+/**
+ * The help section
+ * @author Mark
+ *
+ */
 public class HelpItem extends JMenuItem {
 	/**
 	 * Serial

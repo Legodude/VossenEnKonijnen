@@ -8,6 +8,11 @@ import vk.model.Field;
 import vk.model.Location;
 import vk.simulation.Randomizer;
 
+/**
+ * Zombierabbit hunts other rabbits
+ * @author Mark
+ *
+ */
 public class ZombieRabbit extends Animal{
 
 	//All zombierabbits share these characteristics
