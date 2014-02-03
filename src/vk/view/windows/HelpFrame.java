@@ -5,7 +5,7 @@ import javax.swing.*;
 public class HelpFrame extends JDialog {
 
 	/**
-	 * nog eens
+	 * Serial
 	 */
 	private static final long serialVersionUID = -8839475536465368087L;
 

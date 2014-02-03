@@ -9,10 +9,13 @@ import vk.view.textfields.FieldSize;
 public class SettingsFrame extends JDialog {
 
 	/**
-	 * and another!!
+	 * Serial
 	 */
 	private static final long serialVersionUID = 267819929729372474L;
 
+	/**
+	 * Construct a new settings pane
+	 */
 	public SettingsFrame() {
 		setLocation(100, 50); 
 		setTitle("Simulation settings");

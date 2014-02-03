@@ -8,7 +8,7 @@ import vk.view.graph.PieGraph;
 public class PieGraphFrame extends JDialog {
 
 	/**
-	 * ranomd
+	 * Serial
 	 */
 	private static final long serialVersionUID = -2474402795657944620L;
 
