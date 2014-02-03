@@ -8,6 +8,11 @@ import vk.model.*;
 import vk.simulation.Simulator;
 import vk.view.*;
 
+/**
+ * The pie graph
+ * @author Mark
+ *
+ */
 public class PieGraph extends AbstractView{
 
 	/**

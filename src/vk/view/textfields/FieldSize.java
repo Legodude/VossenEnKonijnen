@@ -36,9 +36,22 @@ public class FieldSize extends JTextField implements ActionListener {
 		if(event.getActionCommand().equals("newsize")&& !this.getText().equals("Width Depth")) {
 			String text = this.getText();
 			String[] splitted = text.split("\\s+");
-			int width = Integer.parseInt(splitted[0]);
-			int depth = Integer.parseInt(splitted[1]);
-			Simulator.setField(width, depth);
+			int width = 0;
+			int depth = 0;
+			try { width = Integer.parseInt(splitted[0]);
+				  depth = Integer.parseInt(splitted[1]);
+			}
+			catch (NumberFormatException e) {
+				System.out.println("Please enter two valid numbers (example: 50 50)");
+			}
+			catch (ArrayIndexOutOfBoundsException e) {
+				System.out.println("Please enter two valid numbers (example: 50 50)");
+			}
+			if(width>0 && depth>0) {
+				Simulator.setField(width, depth);
+			}
+			Simulator.stop();
+			Simulator.reset();
 			Simulator.reset();
 		}
 	}
