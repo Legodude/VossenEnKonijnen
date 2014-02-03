@@ -165,20 +165,7 @@ public class Field
         }
         return free;
     }
-    
-    public List<Location> getFreeAdjacentIgnoreGrass(Location location)
-    {
-        List<Location> free = new LinkedList<Location>();
-        List<Location> adjacent = adjacentLocations(location, 1);
-        for(Location next : adjacent) {
-            if(getObjectAt(next) == null || getObjectAt(next) instanceof Grass) {
-                free.add(next);
-            }
-        }
-        return free;
-    }
-    
-    
+
     /**
      * Get a shuffled list of the taken adjacent locations and their occupants.
      * @param location
@@ -208,18 +195,6 @@ public class Field
     {
         // The available free ones.
         List<Location> free = getFreeAdjacentLocations(location);
-        if(free.size() > 0) {
-            return free.get(0);
-        }
-        else {
-            return null;
-        }
-    }
-    
-    public Location freeAdjacentLocationIgnoreGrass(Location location)
-    {
-        // The available free ones.
-        List<Location> free = getFreeAdjacentIgnoreGrass(location);
         if(free.size() > 0) {
             return free.get(0);
         }
