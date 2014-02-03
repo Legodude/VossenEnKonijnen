@@ -6,10 +6,10 @@ import vk.model.Field;
 import vk.model.Location;
 
 public interface Actor {
+	
+	//All actors have at least these variables
 	public Field field = null;
-	
 	public Location location = null;
-	
 	public boolean alive=true;
 	public String name = null;
 	/**
@@ -19,9 +19,10 @@ public interface Actor {
 	public abstract boolean isAlive();
 	
 	/**
-	 * kill the Actor
+	 * Kill the actor
 	*/
 	public abstract void setDead();
+	
 	/**
 	 * function to give the name of the Actor (e.g Chuck Norris)
 	 * @return actorname
@@ -29,13 +30,13 @@ public interface Actor {
 	public abstract String getActorName();
 	
 	/**
-	 * perform the operations on the grid
+	 * Let the Actor act out what he does
 	 * @param newactors
 	 */
 	public abstract void act(List<Actor> newactors);
 	
 	/**
-	 * return the sex of the Actor
+	 * Return the sex of the Actor
 	 */
 	public char getSex();
 	

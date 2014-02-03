@@ -92,6 +92,7 @@ public class Fox extends Animal
             }
         }
     }
+    
     /**
      * The getter for the sex of the fox.
      * @return a 'm' or 'f'
@@ -150,8 +151,6 @@ public class Fox extends Animal
         return null;
     }
     
-    
-    
     /**
      * Check whether or not this fox is to give birth at this step.
      * New births will be made into free adjacent locations.
@@ -172,6 +171,7 @@ public class Fox extends Animal
 	        }
         }
     }
+    
     /**
      * Check if the fox is standing next to a member of the opposite sex
      * @return true/false
@@ -189,7 +189,6 @@ public class Fox extends Animal
     	}
     	return false;
     }
-    
     
     /**
      * Generate a number representing the number of births,

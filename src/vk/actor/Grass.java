@@ -15,19 +15,27 @@ public class Grass extends Animal {
     private static final int MAX_AGE = 35;
     // The likelihood of a grass breeding.
     private static final double BREEDING_PROBABILITY = 0.10;
-    // The maximum number of births.
+    // The maximum number of grass spread.
     private static final int MAX_LITTER_SIZE = 1;
-    // Random generator to controll breeding
+    // Random generator to control the spreading.
     private static final Random rand = Randomizer.getRandom();
-	// Set the age of the Grass
+	// Set the age of the Grass.
     private int age;
     
+    /**
+     * Constructor for grass. Included in Animal so it can easily fit in the simulation
+     * @param field
+     * @param location
+     */
 	public Grass(Field field, Location location)
 	{
 		super(field, location);
 		age = 0;
 	}
 	
+	/**
+	 * The grass is basically standing still and spreading.
+	 */
     public void act(List<Actor> newGrass)
     {
         incrementAge();
@@ -41,6 +49,9 @@ public class Grass extends Animal {
         }
      }
     
+    /**
+     * Increment the Grass's age and make it die at old age.
+     */
     private void incrementAge()
     {
         age++;
@@ -49,6 +60,10 @@ public class Grass extends Animal {
         }
     }
     
+    /**
+     * The Grass spreads every turn
+     * @param newGrass
+     */
     private void giveBirth(List<Actor> newGrass)
     {
         // New foxes are born into adjacent locations.
@@ -64,6 +79,10 @@ public class Grass extends Animal {
 	    }
      }
     
+    /**
+     * This method returns the amount of spreading the Grass can do this turn.
+     * @return number of births
+     */
     private int breed()
     {
         int births = 0;
@@ -74,13 +93,16 @@ public class Grass extends Animal {
     }
 
     /**
-     * A fox can breed if it has reached the breeding age.
+     * Check if the grass can spread.
      */
     private boolean canBreed()
     {
         return age >= BREEDING_AGE;
     }
-
+    
+    /**
+     * Grass doesn't have a sex, but needs to be implemented anyway.
+     */
 	public char getSex() {
 		return 0;
 	} 

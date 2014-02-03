@@ -26,7 +26,7 @@ public class Rabbit extends Animal
     private static final double BREEDING_PROBABILITY = 0.30;
     // The maximum number of births.
     private static final int MAX_LITTER_SIZE = 8;
-    // number of steps an rabbit can go before it has to eat again
+    // number of steps a rabbit can go before it has to eat again
     private static final int GRASS_FOOD_VALUE = 20;
     // A shared random number generator to control breeding.
     private static final Random rand = Randomizer.getRandom();

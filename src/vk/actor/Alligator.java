@@ -93,6 +93,11 @@ public class Alligator extends Animal
         }
     }
     
+    /**
+     * The alligator goes to look for food
+     * @param location
+     * @return location of dead animal or null
+     */
     private Location findFood(Location location)
     {
         Field field = getField();

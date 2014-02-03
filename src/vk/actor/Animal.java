@@ -21,8 +21,6 @@ public abstract class Animal implements Actor
     // The animal's position in the field.
     private Location location;
     
-    private String name;
-    
     /**
      * Create a new animal at location in field.
      * 
@@ -34,7 +32,6 @@ public abstract class Animal implements Actor
         alive = true;
         this.field = field;
         setLocation(location);
-        name = null;
     }
     
     /**
@@ -52,7 +49,10 @@ public abstract class Animal implements Actor
     {
         return alive;
     }
-
+    
+    /**
+     * Returns the Actor's name
+     */
     public String getActorName()
     {
     	return name;

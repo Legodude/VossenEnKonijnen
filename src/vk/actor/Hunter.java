@@ -12,27 +12,27 @@ public class Hunter extends Animal {
 
     // Characteristics shared by all foxes (static fields).
     
-    // The age at which a fox can start to breed.
+    // The age at which a hunter can start to breed.
     private static final int BREEDING_AGE = 12;
-    // The age to which a fox can live.
+    // The age to which a hunter can live.
     private static final int MAX_AGE = 100;
-    // The likelihood of a fox breeding.
+    // The likelihood of a hunter breeding.
     private static final double BREEDING_PROBABILITY = 0.8;
     // The maximum number of births.
     private static final int MAX_LITTER_SIZE = 3;
-    // The food value of a single rabbit. In effect, this is the
-    // number of steps a fox can go before it has to eat again.
+    // The food value of a single rabbit and fox. In effect, this is the
+    // number of steps a hunter can go before it has to eat again.
     private static final int RABBIT_FOOD_VALUE = 8;
+    private static final int FOX_FOOD_VALUE = 10;
     // A shared random number generator to control breeding.
     private static final Random rand = Randomizer.getRandom();
-	private static final int FOX_FOOD_VALUE = 10;
 	
     // Individual characteristics (instance fields).
-    // The fox's age.
+    // The hunter's age.
     private int age;
     // The hunter's sex.
     public char sex;
-    // The fox's food level, which is increased by eating rabbits.
+    // The hunter's food level, which is increased by eating rabbits.
     private int foodLevel;
 
     /**
@@ -129,7 +129,7 @@ public class Hunter extends Animal {
     }
     
     /**
-     * Make this hunter more hungry. This could result in the fox's death.
+     * Make this hunter more hungry. This could result in the hunter's death.
      */
     private void incrementHunger()
     {
@@ -140,13 +140,11 @@ public class Hunter extends Animal {
     }
     
     /**
-     * Tell the hunter to look for rabbits and foxes adjacent to its current location.
-     * Only the first live rabbit is eaten or fox.
+     * Tell the hunter to look for rabbits and foxes 2 blocks adjacent to its current location.
+     * Only the first live rabbit or fox is eaten
      * @param location Where in the field it is located.
      * @return Where food was found, or null if it wasn't.
      */
-    
-    
     private Location findFood(Location location)
     {
         Field field = getField();
