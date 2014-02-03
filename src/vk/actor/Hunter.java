@@ -88,7 +88,14 @@ public class Hunter extends Animal {
 	            		setLocation(newLocation);
 	            	}
 	            	else{
-	            		setLocation(field.randomAdjacentLocation(getLocation()));
+	            		newLocation=field.freeAdjacentLocationIgnoreGrass(location);
+	            		if(field.getObjectAt(newLocation) instanceof Grass) {
+	            			field.getObjectAt(newLocation).setDead();
+	            			setLocation(newLocation);
+	            		}
+	            		else if (newLocation != null) {
+	            			setLocation(newLocation);
+	            		}
 	            	}
 	            }
 	            else {

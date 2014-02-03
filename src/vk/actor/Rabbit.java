@@ -27,7 +27,7 @@ public class Rabbit extends Animal
     // The maximum number of births.
     private static final int MAX_LITTER_SIZE = 8;
     // number of steps an rabbit can go before it has to eat again
-    private static final int GRASS_FOOD_VALUE = 30;
+    private static final int GRASS_FOOD_VALUE = 20;
     // A shared random number generator to control breeding.
     private static final Random rand = Randomizer.getRandom();
     // Random infection chance
@@ -187,7 +187,7 @@ public class Rabbit extends Animal
     }
     
     /**
-     * This method returns a new location, away from the closeby zombie rabbit!
+     * This method returns a new location, away from the close-by zombie rabbit!
      * @return the new Location!
      */
     private Location avoidZombies() {

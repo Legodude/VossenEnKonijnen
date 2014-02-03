@@ -91,7 +91,7 @@ public class ZombieRabbit extends Animal{
     private boolean infectRabbit(Location location,List<Actor> newZombieRabbits)
     {
         Field field = getField();
-        List<Location> adjacent = closestPrey(field.adjacentLocations(getLocation(), 1));
+        List<Location> adjacent = field.adjacentLocations(getLocation(), 1);
         Iterator<Location> it = adjacent.iterator();
         while(it.hasNext()) {
             Location where = it.next();
@@ -118,22 +118,5 @@ public class ZombieRabbit extends Animal{
             }
         }
         return false;
-    }
-    
-    private List<Location> closestPrey(List<Location> location)
-    {
-    	Iterator<Location> it = location.iterator();
-    	List<Location> closer = new LinkedList<Location>();
-    	while(it.hasNext()) {
-    		Location where = it.next();
-    		if(where.getCol()==getLocation().getCol()-1 || where.getCol()==getLocation().getCol()+1
-    		|| where.getRow()==getLocation().getRow()-1 || where.getRow()==getLocation().getRow()+1) {
-    			closer.add(where);
-    		}
-    	}
-    	if (closer.isEmpty()) {
-    		return location;
-    	}
-    	return closer;
     }
 }
