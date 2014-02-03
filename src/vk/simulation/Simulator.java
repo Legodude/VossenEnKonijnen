@@ -23,7 +23,7 @@ import vk.view.*;
  */
 
 
-public class Simulator implements Runnable
+public class Simulator extends AbstractModel implements Runnable
 {	
     // Constants representing configuration information for the simulation.
     // The default width for the grid.

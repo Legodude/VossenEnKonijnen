@@ -2,16 +2,13 @@ package vk.view.graph;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.LayoutManager;
-
-import javax.swing.JPanel;
 
 import vk.actor.*;
 import vk.model.*;
 import vk.simulation.Simulator;
 import vk.view.*;
 
-public class PieGraph extends JPanel{
+public class PieGraph extends AbstractView{
 
 	/**
 	 * KAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAS (random)
@@ -21,7 +18,7 @@ public class PieGraph extends JPanel{
 
 	public PieGraph(Simulator newSimulator)
 	{		
-		super((LayoutManager) newSimulator);
+		super(newSimulator);
 	}
 	public void drawPie(Graphics gInput)
 	{

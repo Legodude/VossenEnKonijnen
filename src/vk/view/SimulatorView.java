@@ -35,8 +35,8 @@ public class SimulatorView extends JFrame
         setLocation(100, 50);        
 
         Container contents = getContentPane();
-        contents.add(sim,BorderLayout.CENTER);
-        contents.add(controls,BorderLayout.NORTH);
+        contents.add(sim,BorderLayout.EAST);
+        contents.add(controls,BorderLayout.WEST);
         this.setJMenuBar(new VKMenuBar());
         pack();
         setVisible(true);

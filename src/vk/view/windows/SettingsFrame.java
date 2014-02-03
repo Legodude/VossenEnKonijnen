@@ -1,13 +1,10 @@
 package vk.view.windows;
 
-import java.awt.BorderLayout;
-
 import javax.swing.BoxLayout;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 
 import vk.view.textfields.FieldSize;
-
 
 public class SettingsFrame extends JDialog {
 
