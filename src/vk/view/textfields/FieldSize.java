@@ -49,10 +49,10 @@ public class FieldSize extends JTextField implements ActionListener {
 			}
 			if(width>0 && depth>0) {
 				Simulator.setField(width, depth);
+				Simulator.stop();
+				Simulator.reset();
+				Simulator.reset();
 			}
-			Simulator.stop();
-			Simulator.reset();
-			Simulator.reset();
 		}
 	}
 	

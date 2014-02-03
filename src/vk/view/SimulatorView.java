@@ -50,5 +50,12 @@ public class SimulatorView extends JFrame
     {
     	return sim;
     }
+    
+    /**
+     * Repack
+     */
+    public void repack() {
+    	pack();
+    }
 
 }
